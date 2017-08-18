@@ -7,6 +7,10 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #1a1a21;
+}
+
+p {
+    text-align: center;
     color: #fff;
     font-family: "iywf";
     font-size: 30px;
