@@ -1,0 +1,13 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+html {
+  background-image: linear-gradient(to bottom, #030915 0%, black 100%); }
+
+body {
+  background-image: linear-gradient(0deg, transparent 0%, transparent 9px, rgba(24, 30, 42, 0.69) 9px, rgba(24, 30, 42, 0.69) 10px, transparent 10px, transparent 19px, rgba(255, 255, 255, 0) 19px, rgba(255, 255, 255, 0) 20px, transparent 20px, transparent 29px, rgba(255, 255, 255, 0) 29px, rgba(255, 255, 255, 0) 30px, transparent 30px, transparent 39px, rgba(255, 255, 255, 0) 39px, rgba(255, 255, 255, 0) 40px, transparent 40px, transparent 49px, rgba(255, 255, 255, 0) 49px, rgba(255, 255, 255, 0) 50px), linear-gradient(-90deg, transparent 0%, transparent 9px, rgba(24, 30, 42, 0.69) 9px, rgba(24, 30, 42, 0.69) 10px, transparent 10px, transparent 19px, rgba(255, 255, 255, 0) 19px, rgba(255, 255, 255, 0) 20px, transparent 20px, transparent 29px, rgba(255, 255, 255, 0) 29px, rgba(255, 255, 255, 0) 30px, transparent 30px, transparent 39px, rgba(255, 255, 255, 0) 39px, rgba(255, 255, 255, 0) 40px, transparent 40px, transparent 49px, rgba(255, 255, 255, 0) 49px, rgba(255, 255, 255, 0) 50px);
+  background-size: 60px 60px; }
+
+/*# sourceMappingURL=background.css.map */
