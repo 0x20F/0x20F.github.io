@@ -50,7 +50,18 @@ svg {
 	margin: 0 auto;
 	max-width: 100vw;
 	max-height: 100vw;
-	animation: rotate 20s infinite linear;
+    animation: rotate 50s infinite linear;
+}
+
+circle {
+    transition: fill 4s;
+    stroke: #fff;
+    stroke-width: 10px;
+    stroke-opacity: 0.2;
+}
+
+path {
+    transition: fill 4s;
 }
 
 @keyframes rotate {
