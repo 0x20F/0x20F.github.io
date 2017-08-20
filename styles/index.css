@@ -25,6 +25,25 @@ nav {
     flex-direction: row;
 }
 
+nav a {
+    width: 150px;
+    padding: 10px 20px;
+    margin: 10px;
+    font-family: "iywf";
+    text-decoration: none;
+    color: #7289da;
+    font-size: 20px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    text-transform: uppercase;
+    transition: all 1s;
+    text-align: center;
+    box-shadow: 0 0 5px #000;
+}
+
+nav a:hover {
+    border: 1px solid #7289da;
+}
 
 
 
