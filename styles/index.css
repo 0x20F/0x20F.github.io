@@ -56,7 +56,7 @@ circle {
     transition: fill 4s;
     stroke: #fff;
     stroke-width: 10px;
-    stroke-opacity: 0.2;
+    stroke-opacity: 0.1;
 }
 
 path {
