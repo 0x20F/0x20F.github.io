@@ -1,0 +1,92 @@
+/* Font */
+@font-face {
+    font-family: iwyf;
+    src: url("../assets/fonts/Industry-Bold-webfont.woff2");
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* basic things */
+body {
+    background-image: url("../assets/images/background.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#main-container {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* Columns */
+div[class^="row"] {
+    width: 1370px;
+    height: 70px;
+    margin: 3px;
+}
+
+
+/* Elements 
+--- Decrease the size on smaller screens 
+--- @media
+*/
+.element-box {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 119, 255, 0.21);
+    float: left;
+    margin: 2px;
+    border: 1px solid transparent;
+    transition: all .5s;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    font-family: "iwyf";
+    color: #f2f2f2;
+}
+
+.element-box:hover {
+    border: 1px solid #f2f2f2;
+    background-color: rgb(0, 119, 255);
+    transform: scale(1.5);
+}
+
+.atom-number {
+    width: 70px;
+    font-size: 12px;
+    text-align: left;
+    padding: 5px 0 0 10px;
+}
+
+.atom-letter {
+    font-size: 23px;
+    padding-bottom: 6px;
+}
+
+.atom-weight {
+    width: 70px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.empty-box {
+    width: 70px;
+    height: 70px;
+    float: left;
+    margin: 2px;
+    border: 1px solid transparent;
+}
