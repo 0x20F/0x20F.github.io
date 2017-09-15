@@ -36,7 +36,6 @@
            function contains(array, needle) {
                for(var i = 0; i < array.length; i++) {
                    if(array[i] == needle) {
-                       console.log(array[i] + " == " + needle);
                        return true;
                    }
                }

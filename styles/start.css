@@ -17,6 +17,10 @@ body {
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 #main-container {
@@ -24,8 +28,14 @@ body {
     height: 70%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
+}
+
+#bottom-container {
+    height: 400px;
+    width: 1260px;
+    margin-top: 40px;
 }
 
 /* Columns */
