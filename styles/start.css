@@ -38,6 +38,7 @@ div[class^="row"] {
 
 /* Elements 
 --- Decrease the size on smaller screens 
+--- or not, im just a comment.
 --- @media
 */
 .element-box {
@@ -64,6 +65,25 @@ div[class^="row"] {
     border: 1px solid #f2f2f2;
     background-color: rgb(0, 119, 255);
     transform: scale(1.5);
+}
+
+.element-box-empty {
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(0, 119, 255, 0.21);
+    float: left;
+    margin: 2px;
+    border: 1px solid transparent;
+    transition: all .5s;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    font-family: "iwyf";
+    color: #f2f2f2;
 }
 
 .atom-number {

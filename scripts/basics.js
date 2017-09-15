@@ -20,7 +20,19 @@
            
            var emptyBox = "<div class=\"empty-box\"></div>";
 
-           
+           var nrPlaceholderOne = "<div class=\"element-box-empty\">" +
+                "<div class=\"atom-number\">" +
+                    "57-71" +
+                "</div>" +
+            "</div>";
+
+            var nrPlaceholderTwo = "<div class=\"element-box-empty\">" +
+                "<div class=\"atom-number\">" +
+                    "89-103" +
+                "</div>" +
+            "</div>";
+
+
            function contains(array, needle) {
                for(var i = 0; i < array.length; i++) {
                    if(array[i] == needle) {
