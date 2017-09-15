@@ -4,6 +4,10 @@
     src: url("../assets/fonts/Industry-Bold-webfont.woff2");
 }
 
+@-ms-viewport{
+    width: device-width;
+  }
+
 html, body {
     width: 100%;
     height: 100%;
@@ -25,15 +29,16 @@ body {
 
 #main-container {
     width: 100%;
+    height: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: column;
 }
 
 #bottom-container {
-    height: 200px;
-    width: 1260px;
+    height: auto;
+    width: auto;
     margin-top: 40px;
 }
 
@@ -41,6 +46,13 @@ body {
 div[class^="row"] {
     width: 1550px;
     height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row-bottom {
+    width: 1260px !important;
 }
 
 
@@ -73,6 +85,8 @@ div[class^="row"] {
     border: 1px solid #f2f2f2;
     background-color: rgb(0, 119, 255);
     transform: scale(1.5);
+    box-shadow: 0 0 10px #222;
+
 }
 
 .element-box-empty {
@@ -119,4 +133,51 @@ div[class^="row"] {
     float: left;
     margin: 2px;
     border: 1px solid transparent;
+}
+
+
+@media screen and (max-width: 1670px) {
+    
+
+    .element-box {
+        width: 3.5vw;
+        height: 3.5vw;
+    }
+
+    .element-box-empty {
+        width: 3.5vw;
+        height: 3.5vw;
+    }
+
+    .empty-box {
+        width: 3.5vw;
+        height: 3.5vw;
+    }
+
+    div[class^="row"] {
+        width: auto;
+        height: auto;
+    }
+
+    #bottom-container {
+        margin-top: 10px;
+    }
+
+    .atom-number {
+        width: 100%;
+        font-size: 10px;
+        text-align: left;
+        padding: 1px 0 0 1px;
+    }
+    
+    .atom-symbol {
+        font-size: 16px;
+        padding-bottom: 6px;
+    }
+    
+    .atom-mass {
+        width: 100%;
+        font-size: 10px;
+        text-align: center;
+    }
 }
