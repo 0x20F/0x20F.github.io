@@ -30,8 +30,8 @@ body {
 
 /* Columns */
 div[class^="row"] {
-    width: 1370px;
-    height: 70px;
+    width: 1550px;
+    height: 80px;
     margin: 3px;
 }
 
@@ -41,6 +41,7 @@ div[class^="row"] {
 --- @media
 */
 .element-box {
+    padding: 5px;
     width: 70px;
     height: 70px;
     background-color: rgba(0, 119, 255, 0.21);
@@ -72,18 +73,19 @@ div[class^="row"] {
     padding: 5px 0 0 10px;
 }
 
-.atom-letter {
+.atom-symbol {
     font-size: 23px;
     padding-bottom: 6px;
 }
 
-.atom-weight {
+.atom-mass {
     width: 70px;
     font-size: 12px;
     text-align: center;
 }
 
 .empty-box {
+    padding: 5px;
     width: 70px;
     height: 70px;
     float: left;

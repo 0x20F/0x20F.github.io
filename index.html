@@ -39,7 +39,7 @@
                             continue;
                         }
                         var atomNumber = elements[jsonIndex].number;
-                        var atomicMass = elements[jsonIndex].atomic_mass;
+                        var atomicMass = elements[jsonIndex].atomic_mass.toFixed(4).slice(0, -1);
                         var atomSymbol = elements[jsonIndex].symbol;
 
                         var currentTemplate = template.replace("$number", atomNumber)
