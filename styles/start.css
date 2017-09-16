@@ -297,7 +297,12 @@ div[class^="row"] {
         height: 3.5vw;
     }
 
-    .element-box-empty {
+    .element-box-empty-actinide {
+        width: 3.5vw;
+        height: 3.5vw;
+    }
+
+    .element-box-empty-lanthanide {
         width: 3.5vw;
         height: 3.5vw;
     }
