@@ -109,24 +109,12 @@
             }
         });
 
-        // Please for the love of god change this
+        
         function getCategory(category) {
-            switch(category) {
-                case "diatomic nonmetal":
-                case "alkali metal":
-                case "lanthanide":
-                case "transition metal":
-                case "alkaline earth metal":
-                case "actinide":
-                case "post-transition metal":
-                case "metalloid":
-                case "polyatomic nonmetal":
-                case "noble gas":
-                    return category.replace(/\ /g, "-");
-
-                default:
-                    
+            if(category.startsWith("unknown,")) {
+                return "unknown";
             }
+            return category.replace(/\ /g, "-");
         }
     </script>
 </body>
