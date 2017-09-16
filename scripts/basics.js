@@ -20,13 +20,13 @@
            
            var emptyBox = "<div class=\"empty-box\"></div>";
 
-           var nrPlaceholderOne = "<div class=\"element-box-empty\">" +
+           var nrPlaceholderOne = "<div class=\"element-box-empty-lanthanide\">" +
                 "<div class=\"atom-number\">" +
                     "57-71" +
                 "</div>" +
             "</div>";
 
-            var nrPlaceholderTwo = "<div class=\"element-box-empty\">" +
+            var nrPlaceholderTwo = "<div class=\"element-box-empty-actinide\">" +
                 "<div class=\"atom-number\">" +
                     "89-103" +
                 "</div>" +
