@@ -43,7 +43,7 @@ body {
     margin-left: 90px;
 }
 
-/* Columns */
+/* rows */
 div[class^="row"] {
     width: 1550px;
     height: 86px;
