@@ -27,6 +27,14 @@ body {
 
 }
 
+#info-container {
+    min-width: 43vw;
+    height: 33vh;
+    position: absolute;
+    top: 7px;
+    left: 19.5%;
+}
+
 #main-container {
     width: 100%;
     height: 100%;
@@ -66,7 +74,7 @@ div[class^="row"] {
     padding: 5px;
     width: 70px;
     height: 70px;
-    background-color: rgba(0, 119, 255, 0.21);
+    background-color: rgba(26, 26, 26, 0.21);
     float: left;
     margin: 2px;
     border: 1px solid transparent;
@@ -221,7 +229,7 @@ div[class^="row"] {
     padding: 5px;
     width: 70px;
     height: 70px;
-    background-color: rgba(0, 119, 255, 0.21);
+    background-color: rgba(26, 26, 26, 0.21);
     border-bottom: 1px solid rgb(52, 218, 163);
     margin: 2px;
     transition: all .5s;
@@ -239,7 +247,7 @@ div[class^="row"] {
     padding: 5px;
     width: 70px;
     height: 70px;
-    background-color: rgba(0, 119, 255, 0.21);
+    background-color: rgba(26, 26, 26, 0.21);
     border-bottom: 1px solid rgb(146, 110, 251);
     margin: 2px;
     transition: all .5s;
@@ -270,6 +278,11 @@ div[class^="row"] {
 .atom-symbol {
     font-size: 23px;
     padding-bottom: 6px;
+}
+
+.atom-name {
+    font-size: 0px;
+    transition: all .5s;
 }
 
 .atom-mass {
