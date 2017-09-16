@@ -205,12 +205,12 @@ div[class^="row"] {
 }
 
 .unknown {
-    border-bottom: 1px solid rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(134, 134, 134);
 }
 
 .unknown:hover {
     border: 1px solid #f2f2f2;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(134, 134, 134);
     color: #222;
     transform: scale(1.5);
     box-shadow: 0 0 10px #222;
