@@ -4,6 +4,7 @@
 
 ##### TODO: 
 
+* Add a "legend" saying what all the colors on the table mean
 * Add more information about each element
 * ~~Add different colors to elements~~
 
