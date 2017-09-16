@@ -61,7 +61,12 @@ div[class^="row"] {
 --- or not, im just a comment.
 --- @media
 */
-.element-box {
+/* --------------------------------------------------
+
+        Element classes start here
+
+-----------------------------------------------------*/
+.diatomic-nonmetal {
     padding: 5px;
     width: 70px;
     height: 70px;
@@ -81,14 +86,260 @@ div[class^="row"] {
     color: #f2f2f2;
 }
 
-.element-box:hover {
+.diatomic-nonmetal:hover {
     border: 1px solid #f2f2f2;
     background-color: rgb(0, 119, 255);
     transform: scale(1.5);
     box-shadow: 0 0 10px #222;
-
 }
 
+.alkali-metal {
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(254, 108, 108, 0.21);
+    float: left;
+    margin: 2px;
+    border: 1px solid transparent;
+    transition: all .5s;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    font-family: "iwyf";
+    color: #f2f2f2;
+}
+
+.alkali-metal:hover {
+    border: 1px solid #f2f2f2;
+    background-color: rgb(254, 108, 108);
+    transform: scale(1.5);
+    box-shadow: 0 0 10px #222;
+}
+
+.lanthanide {
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(52, 218, 163, 0.21);
+    float: left;
+    margin: 2px;
+    border: 1px solid transparent;
+    transition: all .5s;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    font-family: "iwyf";
+    color: #f2f2f2;
+}
+
+.lanthanide:hover {
+    border: 1px solid #f2f2f2;
+    background-color: rgb(52, 218, 163);
+    transform: scale(1.5);
+    box-shadow: 0 0 10px #222;
+}
+
+.transition-metal {
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(67, 172, 248, 0.21);
+    float: left;
+    margin: 2px;
+    border: 1px solid transparent;
+    transition: all .5s;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    font-family: "iwyf";
+    color: #f2f2f2;
+}
+
+.transition-metal:hover {
+    border: 1px solid #f2f2f2;
+    background-color: rgb(67, 172, 248);
+    transform: scale(1.5);
+    box-shadow: 0 0 10px #222;
+}
+
+.alkaline-earth-metal {
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(252, 214, 43, 0.21);
+    float: left;
+    margin: 2px;
+    border: 1px solid transparent;
+    transition: all .5s;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    font-family: "iwyf";
+    color: #f2f2f2;
+}
+
+.alkaline-earth-metal:hover {
+    border: 1px solid #f2f2f2;
+    background-color: rgb(252, 214, 43);
+    transform: scale(1.5);
+    box-shadow: 0 0 10px #222;
+}
+
+.actinide {
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(146, 110, 251, 0.21);
+    float: left;
+    margin: 2px;
+    border: 1px solid transparent;
+    transition: all .5s;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    font-family: "iwyf";
+    color: #f2f2f2;
+}
+
+.actinide:hover {
+    border: 1px solid #f2f2f2;
+    background-color: rgb(146, 110, 251);
+    transform: scale(1.5);
+    box-shadow: 0 0 10px #222;
+}
+
+.post-transition-metal {
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(146, 215, 35, 0.21);
+    float: left;
+    margin: 2px;
+    border: 1px solid transparent;
+    transition: all .5s;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    font-family: "iwyf";
+    color: #f2f2f2;
+}
+
+.post-transition-metal:hover {
+    border: 1px solid #f2f2f2;
+    background-color: rgb(146, 215, 35);
+    transform: scale(1.5);
+    box-shadow: 0 0 10px #222;
+}
+
+.metalloid {
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(254, 122, 7, 0.21);
+    float: left;
+    margin: 2px;
+    border: 1px solid transparent;
+    transition: all .5s;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    font-family: "iwyf";
+    color: #f2f2f2;
+}
+
+.metalloid:hover {
+    border: 1px solid #f2f2f2;
+    background-color: rgb(254, 122, 7);
+    transform: scale(1.5);
+    box-shadow: 0 0 10px #222;
+}
+
+.polyatomic-nonmetal {
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(245, 95, 148, 0.21);
+    float: left;
+    margin: 2px;
+    border: 1px solid transparent;
+    transition: all .5s;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    font-family: "iwyf";
+    color: #f2f2f2;
+}
+
+.polyatomic-nonmetal:hover {
+    border: 1px solid #f2f2f2;
+    background-color: rgb(245, 95, 148);
+    transform: scale(1.5);
+    box-shadow: 0 0 10px #222;
+}
+
+.noble-gas {
+    padding: 5px;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(59, 193, 81, 0.21);
+    float: left;
+    margin: 2px;
+    border: 1px solid transparent;
+    transition: all .5s;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    font-family: "iwyf";
+    color: #f2f2f2;
+}
+
+.noble-gas:hover {
+    border: 1px solid #f2f2f2;
+    background-color: rgb(59, 193, 81);
+    transform: scale(1.5);
+    box-shadow: 0 0 10px #222;
+}
+/* --------------------------------------------------
+
+        Element classes end here
+
+-----------------------------------------------------*/
 .element-box-empty {
     padding: 5px;
     width: 70px;
