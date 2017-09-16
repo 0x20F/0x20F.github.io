@@ -24,7 +24,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 /*-----------------------------
@@ -33,22 +32,8 @@ Giant element info banner start
 
 ------------------------------*/
 
-#info-container {
-    min-width: 43vw;
-    height: 33vh;
-    position: absolute;
-    top: 5%;
-    bottom: 95%;
-    left: 19.5%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
 #element {
-    width: 28vh;
-    height: 28vh;
-    /*background-color: rgba(26, 26, 26, 0.21);*/
+    padding-top: 30px;
     transition: all .5s;
 
     display: flex;
@@ -78,6 +63,13 @@ Giant element info banner start
     width: 100%;
     font-size: 30px;
 }
+
+#sidebar {
+    width: 20%;
+    height: 100%;
+    background-color: rgba(26, 26, 26, 0.21);
+}
+
 /*-----------------------------
 
 Giant element info banner END
@@ -158,8 +150,6 @@ div[class^="row"] {
 .diatomic-nonmetal:hover {
     border: 1px solid #f2f2f2;
     background-color: rgb(0, 119, 255);
-    transform: scale(1.5);
-    box-shadow: 0 0 10px #222;
 }
 
 .alkali-metal {
@@ -169,8 +159,6 @@ div[class^="row"] {
 .alkali-metal:hover {
     border: 1px solid #f2f2f2;
     background-color: rgb(254, 108, 108);
-    transform: scale(1.5);
-    box-shadow: 0 0 10px #222;
 }
 
 .lanthanide {
@@ -180,8 +168,6 @@ div[class^="row"] {
 .lanthanide:hover {
     border: 1px solid #f2f2f2;
     background-color: rgb(52, 218, 163);
-    transform: scale(1.5);
-    box-shadow: 0 0 10px #222;
 }
 
 .transition-metal {
@@ -191,8 +177,6 @@ div[class^="row"] {
 .transition-metal:hover {
     border: 1px solid #f2f2f2;
     background-color: rgb(67, 172, 248);
-    transform: scale(1.5);
-    box-shadow: 0 0 10px #222;
 }
 
 .alkaline-earth-metal {
@@ -202,8 +186,6 @@ div[class^="row"] {
 .alkaline-earth-metal:hover {
     border: 1px solid #f2f2f2;
     background-color: rgb(252, 214, 43);
-    transform: scale(1.5);
-    box-shadow: 0 0 10px #222;
 }
 
 .actinide {
@@ -213,8 +195,6 @@ div[class^="row"] {
 .actinide:hover {
     border: 1px solid #f2f2f2;
     background-color: rgb(146, 110, 251);
-    transform: scale(1.5);
-    box-shadow: 0 0 10px #222;
 }
 
 .post-transition-metal {
@@ -225,8 +205,6 @@ div[class^="row"] {
 .post-transition-metal:hover {
     border: 1px solid #f2f2f2;
     background-color: rgb(146, 215, 35);
-    transform: scale(1.5);
-    box-shadow: 0 0 10px #222;
 }
 
 .metalloid {
@@ -236,8 +214,6 @@ div[class^="row"] {
 .metalloid:hover {
     border: 1px solid #f2f2f2;
     background-color: rgb(254, 122, 7);
-    transform: scale(1.5);
-    box-shadow: 0 0 10px #222;
 }
 
 .polyatomic-nonmetal {
@@ -247,8 +223,6 @@ div[class^="row"] {
 .polyatomic-nonmetal:hover {
     border: 1px solid #f2f2f2;
     background-color: rgb(245, 95, 148);
-    transform: scale(1.5);
-    box-shadow: 0 0 10px #222;
 }
 
 .noble-gas {
@@ -258,8 +232,6 @@ div[class^="row"] {
 .noble-gas:hover {
     border: 1px solid #f2f2f2;
     background-color: rgb(59, 193, 81);
-    transform: scale(1.5);
-    box-shadow: 0 0 10px #222;
 }
 
 .unknown {
@@ -270,8 +242,6 @@ div[class^="row"] {
     border: 1px solid #f2f2f2;
     background-color: rgb(134, 134, 134);
     color: #222;
-    transform: scale(1.5);
-    box-shadow: 0 0 10px #222;
 }
 
 
