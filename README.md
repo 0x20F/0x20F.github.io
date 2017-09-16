@@ -4,7 +4,8 @@
 
 ##### TODO: 
 
-* Add different colors to elements
+* Add more information about each element
+* ~~Add different colors to elements~~
 
 The periodic table JSON is a slightly modified version of this:
 https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/PeriodicTableJSON.json
