@@ -27,13 +27,63 @@ body {
 
 }
 
+/*-----------------------------
+
+Giant element info banner start
+
+------------------------------*/
+
 #info-container {
     min-width: 43vw;
     height: 33vh;
     position: absolute;
-    top: 7px;
+    top: 5%;
+    bottom: 95%;
     left: 19.5%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
+
+#element {
+    width: 28vh;
+    height: 28vh;
+    /*background-color: rgba(26, 26, 26, 0.21);*/
+    transition: all .5s;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid transparent;
+
+    font-family: "iwyf";
+    color: #f2f2f2;
+}
+
+#element * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .5s;
+}
+
+#element #symbol {
+    width: 100%;
+    height: 140px;
+    font-size: 140px;
+}
+
+#element #name {
+    width: 100%;
+    font-size: 30px;
+}
+/*-----------------------------
+
+Giant element info banner END
+
+------------------------------*/
+
 
 #main-container {
     width: 100%;
@@ -332,7 +382,7 @@ div[class^="row"] {
     }
 
     #bottom-container {
-        margin-top: 10px;
+        margin-top: 30px;
     }
 
     .atom-number {

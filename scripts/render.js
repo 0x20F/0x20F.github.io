@@ -6,8 +6,9 @@ CLEANUP ON AISLE FOUR PLEASE
 
 ---------------------------*/
 
-
-
+// To give each element an ID so it can be used later
+var idCount = 0;
+// to keep count how many json elements we've gone through
 var jsonIndex = 0;
 
 // Make a variable with the JSON so you dont have to GET it again.
@@ -82,6 +83,12 @@ $.getJSON("assets/table.json", function (data) {
     }
 });
 
+
+
+$(document).on("mouseenter", ".element-box", function(){
+    $("#element #symbol").html($(this).children(".atom-symbol").html());
+
+});
 
 function getCategory(category) {
     if (category.startsWith("unknown,")) {
