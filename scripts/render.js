@@ -5,9 +5,17 @@ CLEANUP ON AISLE FOUR PLEASE
 
 
 ---------------------------*/
+var el;
+fillJson();
+function fillJson() {
+    var onSuccess = function(data) {
+        el = data.elements;   
+    };
+    $.getJSON("assets/table.json", onSuccess);
+}
 
-// To give each element an ID so it can be used later
-var idCount = 0;
+
+
 // to keep count how many json elements we've gone through
 var jsonIndex = 0;
 
@@ -81,13 +89,20 @@ $.getJSON("assets/table.json", function (data) {
             }
         }
     }
+
+    // Give IDS to all element boxes
+    $(".element-box").each(function(i) {
+        $(this).attr("id", i);
+    });
 });
 
 
 
 $(document).on("mouseenter", ".element-box", function(){
     $("#element #symbol").html($(this).children(".atom-symbol").html());
-
+    // WHAT IS THIS
+    $("#element #name").html(el[parseInt($(this).attr("id"))].name);
+    
 });
 
 function getCategory(category) {
@@ -96,3 +111,6 @@ function getCategory(category) {
     }
     return category.replace(/\ /g, "-");
 }
+
+
+
