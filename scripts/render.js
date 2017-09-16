@@ -99,10 +99,17 @@ $.getJSON("assets/table.json", function (data) {
 
 
 $(document).on("mouseenter", ".element-box", function(){
-    $("#element #symbol").html($(this).children(".atom-symbol").html());
-    // WHAT IS THIS
-    $("#element #name").html(el[parseInt($(this).attr("id"))].name);
+    var curr = el[$(this).attr("id")];
+    var info = [curr.appearance, curr.atomic_mass, curr.boil,
+    curr.discovered_by, curr.melt, curr.molar_heat, curr.named_by,
+    curr.phase, curr.source, curr.spectral_image,
+    curr.shells];
     
+    $("#element #symbol").html(curr.symbol);
+    $("#element #name").html(curr.name);
+    $("#sidebar .info").each(function(i) {
+        $(this).html(" " + info[i]);
+    });
 });
 
 function getCategory(category) {
