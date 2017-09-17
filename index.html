@@ -60,9 +60,21 @@
 
     <script type="text/javascript">
 
+        // Set the last element clicked to something non existent
+        var last = null;
+
         $(document).on("click", ".element-box", function() {
-            $("#sidebar").css("margin-left", "0");
-            $("#close-button").css("visibility", "visible");
+            var currId = $(this).attr("id");
+            if(last == currId) {
+                $("#sidebar").css("margin-left", "-20%");
+                // Reset the last clicked one, maybe you 
+                // misclicked and now it doesnt open anymore
+                last = null;
+                return;
+            } else {
+                $("#sidebar").css("margin-left", "0");
+            }
+            last = currId;
         });
     </script>
 </body>
