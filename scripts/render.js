@@ -5,11 +5,11 @@ CLEANUP ON AISLE FOUR PLEASE
 
 
 ---------------------------*/
-var el;
+var jsonElements;
 fillJson();
 function fillJson() {
     var onSuccess = function(data) {
-        el = data.elements;   
+        jsonElements = data.elements;   
     };
     $.getJSON("assets/table.json", onSuccess);
 }
@@ -24,31 +24,43 @@ var jsonIndex = 0;
 $.getJSON("assets/table.json", function (data) {
     var elements = data.elements;
 
+    /* --------------------------------------------------
+    These if statements are like this because of the 
+    way I organized the table json. the top 7 rows come 
+    first and then the bottom two, instead of them being 
+    in atom number order, and so, instead of having 2 json
+    files the requests response time wouldnt match and the
+    elements wouldnt be added in order.
+    ----------------------------------------------------*/
     // Get the top 7 rows
     if (jsonIndex == 0) {
         for (var i = 0; i < 7; i++) {
             var row = $(".row-" + i);
 
             for (var j = 0; j < 18; j++) {
-                if (contains(deadzones, i.toString() + j.toString())) {
+                var currentZone = i.toString() + j.toString();
+                var currentElement = elements[jsonIndex];
 
-                    if (i.toString() + j.toString() == "52") {
-                        row.append(nrPlaceholderOne);
-                    } else if (i.toString() + j.toString() == "62") {
-                        row.append(nrPlaceholderTwo);
-                    } else {
-                        row.append(emptyBox);
+                if (contains(deadzones, currentZone)) {
+                    switch(currentZone) {
+                        case "52":
+                            row.append(nrPlaceholderOne);
+                            break;
+                        case "62":
+                            row.append(nrPlaceholderTwo);
+                            break;
+                        default:
+                            row.append(emptyBox);
+                            break;
                     }
-
                     continue;
                 }
-                var atomNumber = elements[jsonIndex].number;
-                var atomicMass = elements[jsonIndex].atomic_mass.toFixed(4).slice(0, -1);
-                var atomSymbol = elements[jsonIndex].symbol;
-                var category = elements[jsonIndex].category;
-                // Maybe
-                //var atomicMass = elements[jsonIndex].name;
 
+                var atomNumber = currentElement.number;
+                var atomicMass = currentElement.atomic_mass.toFixed(4).slice(0, -1);
+                var atomSymbol = currentElement.symbol;
+                var category = currentElement.category;
+                
 
                 var currentTemplate = template.replace("$number", atomNumber)
                     .replace("$letter", atomSymbol)
@@ -57,25 +69,23 @@ $.getJSON("assets/table.json", function (data) {
                 row.append(currentTemplate);
 
                 // Add the corersponding color class
-                row.children().last().addClass(getCategory(category));
+                row.children().last().addClass(formatCategory(category));
                 jsonIndex++;
             }
         }
     }
-
-    // This needs to be here because if I have another request
-    // Its going to load faster since the file will be shorter
-    // And ruin everything.
     if (jsonIndex == 88) {
 
         for (var i = 7; i < 9; i++) {
             var row = $(".row-" + i);
 
             for (var j = 0; j < 15; j++) {
-                var atomNumber = elements[jsonIndex].number;
-                var atomicMass = elements[jsonIndex].atomic_mass.toFixed(4).slice(0, -1);
-                var atomSymbol = elements[jsonIndex].symbol;
-                var category = elements[jsonIndex].category;
+                var currentElement = elements[jsonIndex];
+
+                var atomNumber = currentElement.number;
+                var atomicMass = currentElement.atomic_mass.toFixed(4).slice(0, -1);
+                var atomSymbol = currentElement.symbol;
+                var category = currentElement.category;
 
                 var currentTemplate = template.replace("$number", atomNumber)
                     .replace("$letter", atomSymbol)
@@ -83,14 +93,15 @@ $.getJSON("assets/table.json", function (data) {
 
                 row.append(currentTemplate);
 
-                // Add the corersponding color class
-                row.children().last().addClass(getCategory(category));
+                row.children().last().addClass(formatCategory(category));
                 jsonIndex++;
             }
         }
     }
 
-    // Give IDS to all element boxes
+    /*
+    - Give IDs to every element after theyve spawned
+    */
     $(".element-box").each(function(i) {
         $(this).attr("id", i);
     });
@@ -99,7 +110,8 @@ $.getJSON("assets/table.json", function (data) {
 
 
 $(document).on("mouseenter", ".element-box", function(){
-    var curr = el[$(this).attr("id")];
+
+    var curr = jsonElements[$(this).attr("id")];
     var info = [curr.appearance, curr.atomic_mass, curr.boil,
     curr.discovered_by, curr.melt, curr.molar_heat, curr.named_by,
     curr.phase, curr.source, curr.spectral_image,
@@ -110,9 +122,10 @@ $(document).on("mouseenter", ".element-box", function(){
     $("#sidebar .info").each(function(i) {
         $(this).html(" " + info[i]);
     });
+
 });
 
-function getCategory(category) {
+function formatCategory(category) {
     if (category.startsWith("unknown,")) {
         return "unknown";
     }
