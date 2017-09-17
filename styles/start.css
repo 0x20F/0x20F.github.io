@@ -87,9 +87,20 @@ Giant element info banner start
     font-size: 16px;
 }
 
+
+#sidebar ul li {
+    width: 90%;
+    height: auto;
+    word-break: break-all;
+    font-family: Roboto;
+    font-size: 13px;
+    color: rgba(242, 242, 242, 0.68);
+}
+
 #sidebar ul li .title {
     color: rgba(255, 255, 255, 0.88);
     font-family: "iwyf";   
+    font-size: 14px;
 }
 
 #sidebar ul li .info {
@@ -98,12 +109,6 @@ Giant element info banner start
     line-height: 8px;
     font-size: 13px;
     color: rgba(242, 242, 242, 0.68);
-}
-
-#sidebar ul li {
-    width: 90%;
-    height: auto;
-    word-break: break-all;
 }
 
 #sidebar a {
