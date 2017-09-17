@@ -57,26 +57,6 @@
 
     <script type="text/javascript" src="scripts/basics.js"></script>
     <script type="text/javascript" src="scripts/render.js"></script>
-
-    <script type="text/javascript">
-
-        // Set the last element clicked to something non existent
-        var last = null;
-
-        $(document).on("click", ".element-box", function() {
-            var currId = $(this).attr("id");
-            if(last == currId) {
-                $("#sidebar").css("margin-left", "-20%");
-                // Reset the last clicked one, maybe you 
-                // misclicked and now it doesnt open anymore
-                last = null;
-                return;
-            } else {
-                $("#sidebar").css("margin-left", "0");
-            }
-            last = currId;
-        });
-    </script>
 </body>
 
 </html>
