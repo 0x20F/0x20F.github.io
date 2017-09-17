@@ -112,6 +112,14 @@ Giant element info banner start
 }
 
 #sidebar a {
+    font-family: Roboto;
+    letter-spacing: 1px;
+    line-height: 8px;
+    font-size: 13px;
+    color: rgba(242, 242, 242, 0.68);
+}
+
+#sidebar #source {
     text-decoration: none;
     width: 80%;
     height: 50px;
@@ -128,7 +136,7 @@ Giant element info banner start
     margin-top: 50px;
 }
 
-#sidebar a:hover {
+#sidebar #source:hover {
     background-color: rgb(0, 119, 255);
     box-shadow: 0 0 4px #222;
 }
