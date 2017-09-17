@@ -45,10 +45,13 @@ $.getJSON("assets/table.json", function (data) {
     ----------------------------------------------------*/
     // Get the top 7 rows
     if (jsonIndex == 0) {
+
+        // For every row
         for (var i = 0; i < 7; i++) {
             // Set what row we're on, based on the div classes in the html
             var row = $(".row-" + i);
 
+            // For every column
             for (var j = 0; j < 18; j++) {
                 // What x,y coordinates we're on (done shitty), My unique comparing system ._.
                 var currentZone = i.toString() + j.toString();
@@ -101,11 +104,13 @@ $.getJSON("assets/table.json", function (data) {
     }
     // If we've spawned all elements up to the last 2 rows of the table
     if (jsonIndex == 88) {
-
+        
+        // For every row
         for (var i = 7; i < 9; i++) {
             // Set what row we're on, based on the div classes in the html
             var row = $(".row-" + i);
-
+            
+            // For every column
             for (var j = 0; j < 15; j++) {
                 // Get the element from the json
                 var currentElement = elements[jsonIndex];
