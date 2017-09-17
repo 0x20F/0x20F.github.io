@@ -151,7 +151,7 @@ $(document).on("click", ".element-box", function () {
     // Store the needed information so its easy to loop through
     var info = [curr.appearance, curr.atomic_mass, curr.boil,
         curr.discovered_by, curr.melt, curr.molar_heat, curr.named_by,
-        curr.phase, curr.spectral_image,
+        curr.phase, curr.spectral_img,
         curr.shells
     ];
 
@@ -162,7 +162,14 @@ $(document).on("click", ".element-box", function () {
 
     // Loop through all the info fields and add info in order
     $("#sidebar .info").each(function (i) {
-        $(this).html(" " + info[i]);
+        // If it's the spectral image (quick fix, (bad fix))
+        // Check if there actually is a spectral image
+        if(i == 8 && info[i] != null) {
+            var link = " <a class=\"info-link\" href=\"" + info[i] + "\" target=\"_blank\">Click to follow link</a>";    
+            $(this).html(link);
+        } else {
+            $(this).html(" " + info[i]);
+        }
     });
 });
 
