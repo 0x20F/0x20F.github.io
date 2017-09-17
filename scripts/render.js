@@ -109,16 +109,19 @@ $.getJSON("assets/table.json", function (data) {
 
 
 
-$(document).on("mouseenter", ".element-box", function(){
+$(document).on("click", ".element-box", function(){
 
     var curr = jsonElements[$(this).attr("id")];
     var info = [curr.appearance, curr.atomic_mass, curr.boil,
     curr.discovered_by, curr.melt, curr.molar_heat, curr.named_by,
-    curr.phase, curr.source, curr.spectral_image,
+    curr.phase, curr.spectral_image,
     curr.shells];
     
-    $("#element #symbol").html(curr.symbol);
-    $("#element #name").html(curr.name);
+    $("#sidebar #element #symbol").html(curr.symbol);
+    $("#sidebar #element #name").html(curr.name);
+    $("#sidebar #source").attr("href", curr.source);
+
+    
     $("#sidebar .info").each(function(i) {
         $(this).html(" " + info[i]);
     });
