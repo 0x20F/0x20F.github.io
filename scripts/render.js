@@ -1,10 +1,3 @@
-/*-------------------------
-
-
-CLEANUP ON AISLE FOUR PLEASE
-
-
----------------------------*/
 // The array containing the entire JSON
 // Because we don't want to re-request it
 // and have to wait a lil bit.
@@ -19,8 +12,8 @@ fillJson();
  * change it, deal with it.
  */
 function fillJson() {
-    var onSuccess = function(data) {
-        jsonElements = data.elements;   
+    var onSuccess = function (data) {
+        jsonElements = data.elements;
     };
     $.getJSON("assets/table.json", onSuccess);
 }
@@ -63,7 +56,7 @@ $.getJSON("assets/table.json", function (data) {
                 if (contains(deadzones, currentZone)) {
                     // Check what type of deadzone it is
                     // and add a template from the basics.js file
-                    switch(currentZone) {
+                    switch (currentZone) {
                         case "52":
                             // This is where the 8th row should go, 57-71
                             row.append(nrPlaceholderOne);
@@ -87,7 +80,7 @@ $.getJSON("assets/table.json", function (data) {
                 var atomicMass = currentElement.atomic_mass.toFixed(4).slice(0, -1);
                 var atomSymbol = currentElement.symbol;
                 var category = currentElement.category;
-                
+
                 // Replace the template values with new ones
                 var currentTemplate = template.replace("$number", atomNumber)
                     .replace("$letter", atomSymbol)
@@ -104,12 +97,12 @@ $.getJSON("assets/table.json", function (data) {
     }
     // If we've spawned all elements up to the last 2 rows of the table
     if (jsonIndex == 88) {
-        
+
         // For every row
         for (var i = 7; i < 9; i++) {
             // Set what row we're on, based on the div classes in the html
             var row = $(".row-" + i);
-            
+
             // For every column
             for (var j = 0; j < 15; j++) {
                 // Get the element from the json
@@ -136,40 +129,65 @@ $.getJSON("assets/table.json", function (data) {
         }
     }
 
-    
+
     // Give IDs to every element after they've spawned
-    $(".element-box").each(function(i) {
+    $(".element-box").each(function (i) {
         $(this).attr("id", i);
     });
 });
+
+
 
 
 /**
  * What happens whenever a new element is clicked
  * Update the data on the sidebar basically
  */
-$(document).on("click", ".element-box", function(){
+$(document).on("click", ".element-box", function () {
 
     // Get the clicked element from the array so we have access to the information
     var curr = jsonElements[$(this).attr("id")];
 
     // Store the needed information so its easy to loop through
     var info = [curr.appearance, curr.atomic_mass, curr.boil,
-    curr.discovered_by, curr.melt, curr.molar_heat, curr.named_by,
-    curr.phase, curr.spectral_image,
-    curr.shells];
-    
+        curr.discovered_by, curr.melt, curr.molar_heat, curr.named_by,
+        curr.phase, curr.spectral_image,
+        curr.shells
+    ];
+
     // Specify the unloopable information
     $("#sidebar #element #symbol").html(curr.symbol);
     $("#sidebar #element #name").html(curr.name);
     $("#sidebar #source").attr("href", curr.source);
 
     // Loop through all the info fields and add info in order
-    $("#sidebar .info").each(function(i) {
+    $("#sidebar .info").each(function (i) {
         $(this).html(" " + info[i]);
     });
-
 });
+
+
+
+
+// Set the last element clicked to something non existent
+var last = null;
+
+// Hiding and showing the sidebar
+$(document).on("click", ".element-box", function () {
+    var currId = $(this).attr("id");
+    if (last == currId) {
+        $("#sidebar").css("margin-left", "-20%");
+        // Reset the last clicked one, maybe you 
+        // misclicked and now it doesnt open anymore
+        last = null;
+        return;
+    } else {
+        $("#sidebar").css("margin-left", "0");
+    }
+    last = currId;
+});
+
+
 
 
 /**
@@ -183,6 +201,3 @@ function formatCategory(category) {
     }
     return category.replace(/\ /g, "-");
 }
-
-
-
