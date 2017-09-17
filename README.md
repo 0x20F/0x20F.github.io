@@ -4,6 +4,8 @@
 
 ##### TODO: 
 
+* Make it, sort of, responsive
+* Add a "legend" saying what all the colors on the table mean
 * Add more information about each element
 * ~~Add different colors to elements~~
 
