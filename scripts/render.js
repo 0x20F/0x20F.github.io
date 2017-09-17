@@ -6,7 +6,7 @@ var jsonElements;
 fillJson();
 
 /**
- * Get the json and shove it in a file
+ * Get the json and shove it in a variable
  * This is its own separate function
  * because I can't be bothered to
  * change it, deal with it.
