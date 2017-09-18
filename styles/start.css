@@ -26,6 +26,21 @@ body {
     align-items: center;
 }
 
+#help {
+    position: absolute;
+    top: 2%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: rgba(26, 26, 26, 0.21);
+    padding: 10px;
+    border-radius: 10px;
+    font-family: "iwyf";
+    color: rgba(242, 242, 242, 0.44);
+    font-size: 12px;
+    user-select: none;
+    cursor: default;
+}
+
 /*-----------------------------
 
 Giant element info banner start
@@ -33,6 +48,8 @@ Giant element info banner start
 ------------------------------*/
 
 #element {
+    user-select: none;
+    cursor: default;
     padding-top: 30px;
 
     height: 20%;
@@ -134,6 +151,7 @@ Giant element info banner start
     color: #f2f2f2;
     transition: all .5s;
     margin-top: 50px;
+    user-select: none;
 }
 
 #sidebar #source:hover {
@@ -184,6 +202,7 @@ div[class^="row"] {
 --- @media
 */
 .element-box {
+    user-select: none;
     padding: 5px;
     width: 70px;
     height: 70px;
@@ -205,6 +224,7 @@ div[class^="row"] {
 }
 
 .element-box:hover {
+    user-select: none;
     border: 1px solid #f2f2f2;
     background-color: rgb(0, 119, 255);
     transform: scale(1.5);
@@ -319,6 +339,7 @@ div[class^="row"] {
 
 
 .element-box-empty-lanthanide {
+    user-select: none;
     padding: 5px;
     width: 70px;
     height: 70px;
@@ -337,6 +358,7 @@ div[class^="row"] {
 }
 
 .element-box-empty-actinide {
+    user-select: none;
     padding: 5px;
     width: 70px;
     height: 70px;
