@@ -160,12 +160,14 @@ $(document).on("click", ".element-box", function () {
     $("#sidebar #element #name").html(curr.name);
     $("#sidebar #source").attr("href", curr.source);
 
+    $("#main-container").css("opacity", "0");
+
     // Loop through all the info fields and add info in order
     $("#sidebar .info").each(function (i) {
         // If it's the spectral image (quick fix, (bad fix))
         // Check if there actually is a spectral image
-        if(i == 8 && info[i] != null) {
-            var link = " <a class=\"info-link\" href=\"" + info[i] + "\" target=\"_blank\">Click to follow link</a>";    
+        if (i == 8 && info[i] != null) {
+            var link = " <a class=\"info-link\" href=\"" + info[i] + "\" target=\"_blank\">Click to follow link</a>";
             $(this).html(link);
         } else {
             $(this).html(" " + info[i]);
@@ -181,17 +183,7 @@ var last = null;
 
 // Hiding and showing the sidebar
 $(document).on("click", ".element-box", function () {
-    var currId = $(this).attr("id");
-    if (last == currId) {
-        $("#sidebar").css("margin-left", "-20%");
-        // Reset the last clicked one, maybe you 
-        // misclicked and now it doesnt open anymore
-        last = null;
-        return;
-    } else {
-        $("#sidebar").css("margin-left", "0");
-    }
-    last = currId;
+    $("#info").css("margin-top", "100%");
 });
 
 
