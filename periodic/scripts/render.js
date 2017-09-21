@@ -184,12 +184,14 @@ $(document).on("click", ".element-box", function () {
     var currId = $(this).attr("id");
     if (last == currId) {
         $("#sidebar").css("margin-left", "-20%");
+        $("#help").html("Click an Element to see more information");
         // Reset the last clicked one, maybe you 
         // misclicked and now it doesnt open anymore
         last = null;
         return;
     } else {
         $("#sidebar").css("margin-left", "0");
+        $("#help").html("Click the same Element twice to close the sidebar");
     }
     last = currId;
 });
