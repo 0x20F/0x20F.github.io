@@ -206,6 +206,11 @@ footer {
     color: #99aab5;
     font-size: 14px;
     letter-spacing: 1px;
+    flex-direction: column;
+}
+
+footer svg path {
+    fill: #99aab5;
 }
 
 .bg_overlay {
