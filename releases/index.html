@@ -74,14 +74,33 @@
     
                 (function(demo) {
                     setInterval(function () {
-                    
-                        var countDownDate = new Date(value[0]).getTime();
-                        var now = new Date().getTime();
-                        var released = false;
+                        
+                        var element = $(`#${demo}`);
+
+
+                        // If there's no date yet
+                        if(value[0] == "TBC") {
+                            element.html(`<span class="to_be_confirmed">To Be Confirmed</span>`);
+                            element.parent().parent().find(".overlay").css({
+                                "opacity": 0.9
+                            });
+                            return;
+                        } else {
+                            var countDownDate = new Date(value[0]).getTime();
+                            var now = new Date().getTime();
+                            var released = false;
+                        }
+                        
+                        
 
                         if(now > countDownDate) {
                             // This means we're past the date so it released
                             released = true;
+                            element.html(`<span class="released">RELEASED</span>`);
+                            element.parent().parent().find(".overlay").css({
+                                "opacity": 0.9
+                            });
+                            return;
                         }
         
                         // Find the distance between now an the count down date
@@ -93,7 +112,7 @@
                         var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)), 2);
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
         
-                        var element = $(`#${demo}`);
+                        
                         if(!released) {
                             if(days > 0) {
                                 element.html(days + " days");
@@ -101,11 +120,6 @@
                                 element.html(hours + ":" +
                                 minutes + ":" + seconds);
                             }
-                        } else {
-                            element.html(`<span class="released">RELEASED</span>`);
-                            element.parent().parent().find(".overlay").css({
-                                "opacity": 0.9
-                            });
                         }
         
                     }, 1000);

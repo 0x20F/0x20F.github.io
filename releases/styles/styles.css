@@ -259,6 +259,10 @@ footer p {
     color: #a40000;
 }
 
+.to_be_confirmed {
+    color: #797979;
+}
+
 @media screen and (max-width: 1800px) {
     .content {
         width: 90%;
