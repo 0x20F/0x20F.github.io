@@ -37,7 +37,7 @@ header {
     justify-content: center;
     align-items: center;
     font-family: Gotham;
-    font-size: 55px;
+    font-size: 39px;
     color: #181b21;
     transition: all .5s;
 }
@@ -49,9 +49,13 @@ header .header_text {
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    border-radius: 2px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    transition: all .5s;
 }
 
 header .fancy {
+    
     height: 55px;
     display: flex;
     justify-content: center;
@@ -177,9 +181,7 @@ header .fancy .smaller {
 }
 
 .box:hover .timerbox,
-.box:hover>p {
-    
-}
+.box:hover>p {}
 
 .overlay {
     position: absolute;
@@ -228,7 +230,7 @@ footer p {
     width: 0;
     height: 0;
     border-top: 700px solid #181b21;
-    border-right: 700px solid transparent;
+    border-right: 800px solid transparent;
 }
 
 .triangle_l {
@@ -259,17 +261,18 @@ footer p {
     color: #a40000;
 }
 
-@media screen and (max-width: 580px) {
+@media screen and (max-width: 860px) {
     header {
-        font-size: 8vw;
+        font-size: 7vw;
         height: 100px;
+        padding: 80px 0;
     }
-    
     header .header_text {
         background-color: #181b21;
         padding: 3vh 5vw;
+        width: 100%;
+        box-shadow: none;
     }
-    
     header .fancy .smaller {
         font-size: 3vw;
         background: none !important;
