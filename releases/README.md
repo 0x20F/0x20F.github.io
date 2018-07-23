@@ -3,5 +3,6 @@
 
 ## TODO:
 
-### Responsiveness
+### Responsiveness [DONE-ish]
+### Sort the release list
 
