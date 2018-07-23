@@ -213,6 +213,11 @@ footer svg path {
     fill: #99aab5;
 }
 
+footer p {
+    width: 80%;
+    text-align: center;
+}
+
 .bg_overlay {
     width: 100%;
     height: 100%;
@@ -261,7 +266,6 @@ footer svg path {
     header {
         font-size: 8vw;
         height: 100px;
-        margin-top: 0;
     }
     
     header .header_text {
