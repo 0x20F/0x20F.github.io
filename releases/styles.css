@@ -75,6 +75,7 @@ header .fancy .smaller {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    transition: all .5s;
 }
 
 .box {
@@ -191,6 +192,10 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: Roboto;
+    color: #99aab5;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
 .bg_overlay {
