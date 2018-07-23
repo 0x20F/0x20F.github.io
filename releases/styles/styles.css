@@ -93,7 +93,7 @@ header .fancy .smaller {
 }
 
 .box {
-    width: 500px;
+    width: 400px;
     height: 200px;
     display: flex;
     justify-content: center;
@@ -111,10 +111,7 @@ header .fancy .smaller {
     overflow: hidden;
     transition: all .5s;
     z-index: 2;
-}
-
-.box:hover {
-    border-color: transparent;
+    border: 4px solid #181b21;
 }
 
 .bg_thumb {
