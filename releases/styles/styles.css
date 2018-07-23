@@ -237,3 +237,7 @@ footer {
     opacity: 0.5;
     transition: all .5s;
 }
+
+.released {
+    color: #a40000;
+}

@@ -68,6 +68,12 @@
                     
                         var countDownDate = new Date(value[0]).getTime();
                         var now = new Date().getTime();
+                        var released = false;
+
+                        if(now > countDownDate) {
+                            // This means we're past the date so it released
+                            released = true;
+                        }
         
                         // Find the distance between now an the count down date
                         var distance = countDownDate - now;
@@ -78,8 +84,16 @@
                         var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)), 2);
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
         
-                        document.getElementById(demo).innerHTML = days + ":" + hours + ":" +
+                        var element = document.getElementById(demo)
+                        if(!released) {
+                            element.innerHTML = days + ":" + hours + ":" +
                             minutes + ":" + seconds;
+                        } else {
+                            element.innerHTML = `<span class="released">RELEASED</span>`;
+                            $(`#${demo}`).parent().parent().find(".overlay").css({
+                                "opacity": 0.8
+                            });
+                        }
         
                     }, 1000);
                 })(demo);
