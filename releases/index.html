@@ -88,15 +88,19 @@
                         var distance = countDownDate - now;
         
                         // Time calculations for days, hours, minutes and seconds
-                        var days = pad(Math.floor(distance / (1000 * 60 * 60 * 24)), 3);
+                        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
                         var hours = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), 2);
                         var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)), 2);
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
         
                         var element = $(`#${demo}`);
                         if(!released) {
-                            element.html(days + ":" + hours + ":" +
-                            minutes + ":" + seconds);
+                            if(days > 0) {
+                                element.html(days + " days");
+                            } else {
+                                element.html(hours + ":" +
+                                minutes + ":" + seconds);
+                            }
                         } else {
                             element.html(`<span class="released">RELEASED</span>`);
                             element.parent().parent().find(".overlay").css({
