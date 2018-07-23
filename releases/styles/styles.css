@@ -259,6 +259,18 @@ footer p {
     color: #a40000;
 }
 
+@media screen and (max-width: 1800px) {
+    .box {
+        width: 25vw;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .box {
+        width: 250px;
+    }
+}
+
 @media screen and (max-width: 860px) {
     header {
         font-size: 7vw;
@@ -276,5 +288,9 @@ footer p {
         background: none !important;
         -webkit-text-fill-color: #f2f2f2;
         opacity: 0.1;
+    }
+
+    .box {
+        width: 350px;
     }
 }
