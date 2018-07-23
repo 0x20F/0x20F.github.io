@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Upcoming Games</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
+</head>
+
+<body>
+    <header>
+        <!-- NOT SURE ABOUT IT -->
+        <div class="header_text">
+                <div class="fancy">
+                    RELEASES |
+                    <span class="smaller"> by Lyric</span>
+                </div>
+        </div>
+    </header>
+
+    <main class="content"></main>
+    <div class="body_bg"></div>
+    <div class="bg_overlay">
+        <div class="triangle_tl"></div>
+        <div class="triangle_l"></div>
+        <div class="triangle_u"></div>
+    </div>
+    
+    <footer>Disclaimer: Dates may not be totally accurate</footer>
+
+    <script>
+        function pad(num, padlen, padchar) {
+            var pad_char = typeof padchar !== 'undefined' ? padchar : '0';
+            var pad = new Array(1 + padlen).join(pad_char);
+            return (pad + num).slice(-pad.length);
+        }
+
+        // Set the date we're counting down to
+        var countDownDate = new Date().getTime();
+
+        var dates = {
+            "Monster Hunter World for PC": ["aug 09, 2018 00:00:01", "https://images2.alphacoders.com/881/thumb-1920-881826.png"],
+            "Dragon Quest XI"            : ["sep 04, 2018 00:00:01", "https://i.redd.it/s9w8sbhj5dbz.jpg"],
+            "Forza Horizon 4"            : ["oct 04, 2018 00:00:01", "http://hdqwalls.com/wallpapers/forza-horizon-4-2018-bj.jpg"],
+            "Soul Calibur"               : ["oct 18, 2018 00:00:01", "https://www.gamewallpapers.com/wallpapers_slechte_compressie/01wallpapers/wallpaper_soulcalibur_6_01_1920x1080.jpg"],
+            "Kingdom Hearts 3"           : ["jan 24, 2019 00:00:01", "https://images.khinsider.com/KINGDOM%20HEARTS%20III/Screenshots/Square%20Enix%20North%20America%20-%20June%2017%202015/KH3_01re.jpg"],
+            "Devil May Cry 5"            : ["jan 01, 2019 00:00:01", "https://wallpapershome.com/images/pages/pic_hs/18971.png"],
+            "Babylon's Fall"             : ["jan 01, 2019 00:00:01", "http://assets1.ignimgs.com/2018/06/11/bf-1528737650472_1280w.jpg"],
+            "Sekiro: Shadows Die Twice"  : ["jan 01, 2019 00:00:01", "https://i.imgur.com/m0nYgUe.jpg"],
+        }
+        var demo_i = 0;
+
+        for (const [key, value] of Object.entries(dates)) {
+            console.log(key, value);
+
+            var demo = "demo" + demo_i;
+
+            $("body .content").append(
+                `<div class="box">
+                   <div class="overlay"></div>
+                   <div class="triangle-right"></div>
+                   <p>${key}</p>
+                   <div class="timerbox">
+                       <p id="${demo}"></p>
+                   </div>
+                   <div class="bg_thumb">
+                       <img class="background" src="${value[1]}"/>
+                   </div>
+               </div>`
+            );
+
+
+            (function(demo) {
+                setInterval(function () {
+                
+                    var countDownDate = new Date(value[0]).getTime();
+                    var now = new Date().getTime();
+    
+                    // Find the distance between now an the count down date
+                    var distance = countDownDate - now;
+    
+                    // Time calculations for days, hours, minutes and seconds
+                    var days = pad(Math.floor(distance / (1000 * 60 * 60 * 24)), 3);
+                    var hours = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), 2);
+                    var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)), 2);
+                    var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
+    
+                    document.getElementById(demo).innerHTML = days + ":" + hours + ":" +
+                        minutes + ":" + seconds;
+    
+                }, 1000);
+            })(demo);
+
+            demo_i++;
+        }
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,234 @@
+@font-face {
+    src: url("fonts/Gotham\ Bold\ Regular.ttf");
+    font-family: Gotham;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #181b21;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header {
+    width: 100%;
+    height: 200px;
+    margin: 50px 0 10px 0;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Gotham;
+    font-size: 55px;
+    color: #181b21;
+}
+
+header .header_text {
+    background-color: #181b21;
+    padding: 30px 50px;
+}
+
+header .fancy {
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    background: linear-gradient(130deg, #6c52d9 0%, #1eaafc 85%, #3edfd7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header .fancy .smaller {
+    font-size: 20px;
+    margin: 0 50px 0 20px;
+    background: none !important;
+    -webkit-text-fill-color: #f2f2f2;
+    opacity: 0.1;
+}
+
+.body_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(130deg, #6c52d9 0%, #1eaafc 85%, #3edfd7 100%);
+    z-index: 0;
+}
+
+.content {
+    width: 80%;
+    height: auto;
+    min-height: 400px;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.box {
+    width: 500px;
+    height: 200px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: Montserrat;
+    font-size: 20px;
+    color: #f2f2f2;
+    border-radius: 4px;
+    flex-direction: column;
+    margin: 30px;
+    background-color: #181b21;
+    background-image: linear-gradient(130deg, #6c52d9 0%, #1eaafc 85%, #3edfd7 100%);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    position: relative;
+    overflow: hidden;
+    transition: all .5s;
+    z-index: 2;
+}
+
+.box:hover {
+    border-color: transparent;
+}
+
+.bg_thumb {
+    width: 500px;
+    height: 200px;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background {
+    width: 100%;
+    min-height: 100%;
+}
+
+.box>p {
+    height: 70%;
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    z-index: 5;
+    margin: 0;
+    padding: 0;
+    transition: all .5s;
+    padding-left: 40px;
+}
+
+.box .timerbox {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    z-index: 5;
+    margin: 0;
+    padding: 0;
+    transition: all .5s;
+    padding-left: 40px;
+    color: #9acaea;
+    margin-bottom: 20px;
+    margin-top: -10px;
+}
+
+.triangle-right {
+    width: 0;
+    height: 0;
+    border-top: 200px solid transparent;
+    border-left: 1000px solid #181b21;
+    border-bottom: 200px solid transparent;
+    position: absolute;
+    left: 0;
+    top: 30px;
+    z-index: 2;
+    opacity: 0;
+    transition: all .5s;
+}
+
+.box:hover .triangle-right {
+    opacity: 1;
+}
+
+.box:hover .timerbox,
+.box:hover>p {
+    padding-left: 50px;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #181b21;
+    opacity: 0.6;
+    z-index: 3;
+}
+
+footer {
+    width: 100%;
+    height: 300px;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bg_overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.triangle_tl {
+    width: 0;
+    height: 0;
+    border-top: 700px solid #181b21;
+    border-right: 700px solid transparent;
+}
+
+.triangle_l {
+    width: 0;
+    height: 0;
+    border-top: 500px solid transparent;
+    border-right: 900px solid #181b21;
+    border-bottom: 1000px solid transparent;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.triangle_u {
+    width: 0;
+    height: 0;
+    border-left: 1136px solid transparent;
+    border-right: 500px solid transparent;
+    border-bottom: 633px solid #3d475c;
+    position: absolute;
+    bottom: 0;
+    right: 100px;
+    opacity: 0.5;
+    transition: all .5s;
+}
