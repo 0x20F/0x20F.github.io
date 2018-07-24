@@ -46,6 +46,42 @@
     </footer>
 
     <script>
+        /* ####
+        #######
+        ####### Searchbar functionality starts here
+        #######
+        ####*/
+        $(".search_box").val("");
+        $(".search_box").on("keyup", function() {
+            let s_val = $(this).val().toLowerCase();
+            console.log(s_val);
+
+            $(".box").each(function(i) {
+                let g_current = $(this);
+                let g_title = g_current.find(".game_title").text().toLowerCase();
+
+                if(!g_title.includes(s_val)) {
+                    g_current.css({
+                        "display": "none"
+                    });
+                } else {
+                    g_current.css({
+                        "display": "flex"
+                    });
+                }
+            });
+        });
+
+
+
+
+
+
+        /* ####
+        #######
+        #######  Game-Element generation/assembly starts here
+        #######
+        ####*/
         function pad(num, padlen, padchar) {
             var pad_char = typeof padchar !== 'undefined' ? padchar : '0';
             var pad = new Array(1 + padlen).join(pad_char);
@@ -70,7 +106,7 @@
                     `<div class="box">
                        <div class="overlay"></div>
                        <div class="cover"></div>
-                       <p>${key}</p>
+                       <p class="game_title">${key}</p>
                        <div class="timerbox">
                            <p id="${timer}"></p>
                        </div>
