@@ -352,6 +352,10 @@ footer p {
 }
 
 @media screen and (max-width: 860px) {
+    body {
+        overflow-x: hidden;
+    }
+
     header {
         font-size: 7vw;
         height: 100px;
@@ -380,11 +384,16 @@ footer p {
 
     .search_container {
         width: 400px;
-        margin: 0 30px 0 30px 0;
+        margin: 0 30px 0 30px 0 !important;
         box-shadow: none;
     }
 
     .search_container .search_box {
         font-size: 16px;
+    }
+
+    .search_container .icon {
+        font-size: 12px;
+        width: 30px;
     }
 }
