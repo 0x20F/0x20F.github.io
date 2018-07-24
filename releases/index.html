@@ -45,18 +45,18 @@
 
         // Set the date we're counting down to
         var countDownDate = new Date().getTime();
-        var demo_i = 0;
+        var timer_i = 0;
 
 
         /*
             DONE - Add TBC Dates and timers
         */
-        var test = {};
+        var intervals = {};
         $.getJSON("data/games.json", {}, function(data) {
             for (const [key, value] of Object.entries(data)) {
                 console.log(key, value);
     
-                var demo = "demo" + demo_i;
+                var timer = "timer" + timer_i;
     
                 $("body .content").append(
                     `<div class="box">
@@ -64,7 +64,7 @@
                        <div class="cover"></div>
                        <p>${key}</p>
                        <div class="timerbox">
-                           <p id="${demo}"></p>
+                           <p id="${timer}"></p>
                        </div>
                        <div class="bg_thumb">
                            <img class="background" src="${value[1]}"/>
@@ -73,12 +73,11 @@
                 );
     
     
-                (function(demo) {
+                (function(timer) {
                     // Add it to an array so it can be killed if needed
-                    test[demo] = setInterval(function () {
+                    intervals[timer] = setInterval(function () {
                         
-                        var element = $(`#${demo}`);
-                        console.log(demo);
+                        var element = $(`#${timer}`);
                         
 
                         // If there's no date yet
@@ -87,8 +86,7 @@
                             element.parent().parent().find(".overlay").css({
                                 "opacity": 0.9
                             });
-                            clearInterval(test[demo]);
-                            console.log("[i] CLEARED. Reason: TBC");
+                            clearInterval(intervals[timer]);
                             return;
                         } else {
                             var countDownDate = new Date(value[0]).getTime();
@@ -105,8 +103,7 @@
                             element.parent().parent().find(".overlay").css({
                                 "opacity": 0.9
                             });
-                            clearInterval(test[demo]);
-                            console.log("[i] CLEARED. Reason: RELEASED");
+                            clearInterval(intervals[timer]);
                             return;
                         }
         
@@ -130,9 +127,9 @@
                         }
         
                     }, 1000);
-                })(demo);
+                })(timer);
     
-                demo_i++;
+                timer_i++;
                 
             }
         });
