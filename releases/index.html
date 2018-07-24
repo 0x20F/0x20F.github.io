@@ -46,12 +46,11 @@
         // Set the date we're counting down to
         var countDownDate = new Date().getTime();
         var timer_i = 0;
-
+        var intervals = {};
 
         /*
             DONE - Add TBC Dates and timers
         */
-        var intervals = {};
         $.getJSON("data/games.json", {}, function(data) {
             for (const [key, value] of Object.entries(data)) {
                 console.log(key, value);
@@ -81,8 +80,8 @@
                         
 
                         // If there's no date yet
-                        if(value[0] == "TBC") {
-                            element.html(`<span class="to_be_confirmed">To Be Confirmed</span>`);
+                        if(value[0].startsWith("TBC")) {
+                            element.html(`<span class="to_be_confirmed">${value[0]}</span>`);
                             element.parent().parent().find(".overlay").css({
                                 "opacity": 0.9
                             });
@@ -130,7 +129,6 @@
                 })(timer);
     
                 timer_i++;
-                
             }
         });
         
