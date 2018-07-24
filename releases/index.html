@@ -49,8 +49,9 @@
 
 
         /*
-            - Add TBC Dates and timers
+            DONE - Add TBC Dates and timers
         */
+        var test = {};
         $.getJSON("data/games.json", {}, function(data) {
             for (const [key, value] of Object.entries(data)) {
                 console.log(key, value);
@@ -73,10 +74,12 @@
     
     
                 (function(demo) {
-                    setInterval(function () {
+                    // Add it to an array so it can be killed if needed
+                    test[demo] = setInterval(function () {
                         
                         var element = $(`#${demo}`);
-
+                        console.log(demo);
+                        
 
                         // If there's no date yet
                         if(value[0] == "TBC") {
@@ -84,6 +87,8 @@
                             element.parent().parent().find(".overlay").css({
                                 "opacity": 0.9
                             });
+                            clearInterval(test[demo]);
+                            console.log("[i] CLEARED. Reason: TBC");
                             return;
                         } else {
                             var countDownDate = new Date(value[0]).getTime();
@@ -100,6 +105,8 @@
                             element.parent().parent().find(".overlay").css({
                                 "opacity": 0.9
                             });
+                            clearInterval(test[demo]);
+                            console.log("[i] CLEARED. Reason: RELEASED");
                             return;
                         }
         
@@ -126,6 +133,7 @@
                 })(demo);
     
                 demo_i++;
+                
             }
         });
         
