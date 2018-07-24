@@ -46,6 +46,28 @@
     </footer>
 
     <script>
+
+        /* ####
+        #######
+        ####### Minor tweaks for animations
+        #######
+        ####*/
+        $(".search_box").on("focus", function() {
+            $("header").css({
+                "margin-top": "-50vh"
+            });
+        }).on("focusout", function() {
+            $("header").css({
+                "margin-top": "0"
+            });
+        });
+
+
+
+
+
+
+
         /* ####
         #######
         ####### Searchbar functionality starts here

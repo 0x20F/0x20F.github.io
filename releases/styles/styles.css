@@ -39,7 +39,7 @@ header {
     font-family: Gotham;
     font-size: 39px;
     color: #181b21;
-    transition: all .5s;
+    transition: all 1s;
     flex-direction: column;
 }
 
@@ -82,6 +82,7 @@ header .fancy .smaller {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all .5s;
 }
 
 .search_container {
@@ -94,6 +95,7 @@ header .fancy .smaller {
     justify-content: flex-start;
     align-items: center;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    transition: all .5s;
 }
 
 .search_container .icon {
@@ -120,6 +122,7 @@ header .fancy .smaller {
     padding-left: 20px;
     font-size: 18px;
     color: #1eaafc;
+    transition: all .5s;
 }
 
 .body_bg {
@@ -338,6 +341,14 @@ footer p {
     .content {
         width: 90%;
     }
+
+    .search_container {
+        width: 500px;
+    }
+
+    .search_container .search_box {
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width: 860px) {
@@ -345,6 +356,7 @@ footer p {
         font-size: 7vw;
         height: 100px;
         padding: 50px 0 10px 0;
+        margin: 0;
     }
     header .header_text {
         background-color: #181b21;
@@ -360,5 +372,19 @@ footer p {
     }
     .content {
         width: 100%;
+    }
+
+    .search_area {
+        margin: 0px 0px 20px 0px;
+    }
+
+    .search_container {
+        width: 400px;
+        margin: 0 30px 0 30px 0;
+        box-shadow: none;
+    }
+
+    .search_container .search_box {
+        font-size: 16px;
     }
 }
