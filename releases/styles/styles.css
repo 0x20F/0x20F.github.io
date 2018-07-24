@@ -367,7 +367,15 @@ footer p {
         padding: 3vh 5vw;
         width: 100%;
         box-shadow: none;
+        
     }
+
+    header .fancy {
+        justify-content: flex-start;
+        width: 100%;
+        margin: 0 50px;
+    }
+
     header .fancy .smaller {
         font-size: 3vw;
         background: none !important;
