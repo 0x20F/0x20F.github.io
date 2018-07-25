@@ -148,7 +148,7 @@ header .fancy .smaller {
 }
 
 .box {
-    width: 400px;
+    width: 350px;
     height: 200px;
     display: flex;
     justify-content: center;
@@ -167,10 +167,11 @@ header .fancy .smaller {
     transition: all .5s;
     z-index: 2;
     border: 2px solid #181b21;
+    flex-grow: 1;
 }
 
 .bg_thumb {
-    width: 500px;
+    width: 100%;
     height: 200px;
     overflow: hidden;
     position: absolute;
@@ -345,11 +346,9 @@ footer a {
     .content {
         width: 90%;
     }
-
     .search_container {
-        width: 500px;
+        width: 600px;
     }
-
     .search_container .search_box {
         font-size: 16px;
     }
@@ -359,7 +358,6 @@ footer a {
     body {
         overflow-x: hidden;
     }
-
     header {
         font-size: 7vw;
         height: 100px;
@@ -368,18 +366,16 @@ footer a {
     }
     header .header_text {
         background-color: #181b21;
-        padding: 3vh 5vw;
-        width: 100%;
+        padding: 3vh 5vw 3vh 0;
+        width: 90%;
         box-shadow: none;
-        
+        margin-left: 30px;
     }
-
     header .fancy {
         justify-content: flex-start;
         width: 100%;
-        margin: 0 50px;
+        margin: 0;
     }
-
     header .fancy .smaller {
         font-size: 3vw;
         background: none !important;
@@ -389,21 +385,19 @@ footer a {
     .content {
         width: 100%;
     }
-
     .search_area {
-        margin: 0px 0px 20px 0px;
+        margin: 70px 0px 0px 0px;
+        justify-content: flex-start;
+        padding-left: 30px;
     }
-
     .search_container {
         width: 400px;
         margin: 0 30px 0 30px 0 !important;
         box-shadow: none;
     }
-
     .search_container .search_box {
         font-size: 16px;
     }
-
     .search_container .icon {
         font-size: 12px;
         width: 30px;
