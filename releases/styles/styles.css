@@ -123,6 +123,7 @@ header .fancy .smaller {
     font-size: 18px;
     color: #1eaafc;
     transition: all .5s;
+    outline: none;
 }
 
 .body_bg {
