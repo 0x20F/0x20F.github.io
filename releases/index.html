@@ -7,21 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
+        crossorigin="anonymous">
 </head>
 
 <body>
-    
-    
+
+
     <main class="content">
         <header>
             <!-- NOT SURE ABOUT IT -->
             <div class="header_text">
-                    <div class="fancy">
-                        RELEASES |
-                        <span class="smaller"> by Poly</span>
-                    </div>
+                <div class="fancy">
+                    RELEASES |
+                    <span class="smaller"> by Poly</span>
+                </div>
             </div>
         </header>
         <div class="search_area">
@@ -39,26 +40,31 @@
         <div class="triangle_l foreground"></div>
         <div class="triangle_u foreground"></div>
     </div>
-    
+
     <footer>
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30" height="30" viewBox="0 0 30 30"><path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30" height="30" viewBox="0 0 30 30">
+            <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
+            />
+        </svg>
         <p>Dates may not be totally accurate as they are game releases and surprise bugs may show up in the development process.</p>
         <br>
-        <p><br>Can't find a game? Contribute to the list and help improve it <a href="https://github.com/SirTheViking/SirTheViking.github.io">Github</a></p>
+        <p>
+            <br>Can't find a game? Contribute to the list and help improve it
+            <a href="https://github.com/SirTheViking/SirTheViking.github.io">Github</a>
+        </p>
     </footer>
 
     <script>
-
         /* ####
-        #######
-        ####### Minor tweaks for animations
-        #######
-        ####*/
-        $(".search_box").on("focus", function() {
+                #######
+                ####### Minor tweaks for animations
+                #######
+                ####*/
+        $(".search_box").on("focus", function () {
             $("header").css({
                 "margin-top": "-50vh"
             });
-        }).on("focusout", function() {
+        }).on("focusout", function () {
             $("header").css({
                 "margin-top": "0"
             });
@@ -76,15 +82,15 @@
         #######
         ####*/
         $(".search_box").val("");
-        $(".search_box").on("keyup", function() {
+        $(".search_box").on("keyup", function () {
             let s_val = $(this).val().toLowerCase();
             console.log(s_val);
 
-            $(".box").each(function(i) {
+            $(".box").each(function (i) {
                 let g_current = $(this);
                 let g_title = g_current.find(".game_title").text().toLowerCase();
 
-                if(!g_title.includes(s_val)) {
+                if (!g_title.includes(s_val)) {
                     g_current.css({
                         "display": "none"
                     });
@@ -95,6 +101,7 @@
                 }
             });
         });
+
 
 
 
@@ -117,15 +124,14 @@
         var timer_i = 0;
         var intervals = {};
 
-        /*
-            DONE - Add TBC Dates and timers
-        */
-        $.getJSON("data/games.json", {}, function(data) {
+
+        $.getJSON("data/games.json", {}, function (data) {
+
             for (const [key, value] of Object.entries(data)) {
                 console.log(key, value);
-    
+
                 var timer = "timer" + timer_i;
-    
+
                 $("body .content").append(
                     `<div class="box">
                        <div class="overlay"></div>
@@ -139,17 +145,17 @@
                        </div>
                    </div>`
                 );
-    
-    
-                (function(timer) {
+
+
+                (function (timer) {
                     // Add it to an array so it can be killed if needed
                     intervals[timer] = setInterval(function () {
-                        
+
                         var element = $(`#${timer}`);
-                        
+
 
                         // If there's no date yet
-                        if(value[0].startsWith("TBC")) {
+                        if (value[0].startsWith("TBC")) {
                             element.html(`<span class="to_be_confirmed">${value[0]}</span>`);
                             element.parent().parent().find(".overlay").css({
                                 "opacity": 0.9
@@ -161,10 +167,10 @@
                             var now = new Date().getTime();
                             var released = false;
                         }
-                        
-                        
 
-                        if(now > countDownDate) {
+
+
+                        if (now > countDownDate) {
                             // This means we're past the date so it released
                             released = true;
                             element.html(`<span class="released">RELEASED</span>`);
@@ -174,35 +180,34 @@
                             clearInterval(intervals[timer]);
                             return;
                         }
-        
+
                         // Find the distance between now an the count down date
                         var distance = countDownDate - now;
-        
+
                         // Time calculations for days, hours, minutes and seconds
                         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                        var hours = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), 2);
-                        var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)), 2);
+                        var hours = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 *
+                            60)), 2);
+                        var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+                            2);
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
-        
-                        
-                        if(!released) {
-                            if(days > 0) {
+
+
+                        if (!released) {
+                            if (days > 0) {
                                 element.html(days + " days");
                             } else {
                                 element.html(hours + ":" +
-                                minutes + ":" + seconds);
+                                    minutes + ":" + seconds);
                             }
                         }
-        
+
                     }, 1000);
                 })(timer);
-    
+
                 timer_i++;
             }
         });
-        
-
-        
     </script>
 </body>
 
