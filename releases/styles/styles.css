@@ -369,7 +369,7 @@ footer a {
         margin: 0;
     }
     header .header_text {
-        background-color: #181b21;
+        background-color: transparent;
         padding: 3vh 5vw 3vh 0;
         width: 90%;
         box-shadow: none;
