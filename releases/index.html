@@ -81,15 +81,19 @@
         ####### Searchbar functionality starts here
         #######
         ####*/
-        $(".search_box").val("");
+        $(".search_box").val(""); // Empty the search box
+        // Whenever a key is released (a full keypress) 
         $(".search_box").on("keyup", function () {
-            let s_val = $(this).val().toLowerCase();
-            console.log(s_val);
+            let s_val = $(this).val().toLowerCase(); // Make it lowercase
+            console.log(s_val); // Debug
 
+            // For every .box element (every game)
             $(".box").each(function (i) {
                 let g_current = $(this);
                 let g_title = g_current.find(".game_title").text().toLowerCase();
 
+                // Compare the titles and hide the ones
+                // that don't match
                 if (!g_title.includes(s_val)) {
                     g_current.css({
                         "display": "none"
@@ -113,6 +117,8 @@
         #######  Game-Element generation/assembly starts here
         #######
         ####*/
+
+        // Used to pad timers with 0s so instead of 1:20 it's 01:20 (for example)
         function pad(num, padlen, padchar) {
             var pad_char = typeof padchar !== 'undefined' ? padchar : '0';
             var pad = new Array(1 + padlen).join(pad_char);
@@ -121,17 +127,19 @@
 
         // Set the date we're counting down to
         var countDownDate = new Date().getTime();
-        var timer_i = 0;
-        var intervals = {};
+        var timer_i = 0; // Increment for each new timer, so they have an id.
+        var intervals = {}; // All the running timers, can be accessed to stop realeased titles
 
-
+        // Request the game list from the local files
         $.getJSON("data/games.json", {}, function (data) {
 
             for (const [key, value] of Object.entries(data)) {
-                console.log(key, value);
+                console.log(key, value); // Debug
 
                 var timer = "timer" + timer_i;
 
+                // Append a box containing all the info about a game
+                // based on the data retrieved from the json
                 $("body .content").append(
                     `<div class="box">
                        <div class="overlay"></div>
@@ -146,7 +154,6 @@
                    </div>`
                 );
 
-
                 (function (timer) {
                     // Add it to an array so it can be killed if needed
                     intervals[timer] = setInterval(function () {
@@ -157,9 +164,11 @@
                         // If there's no date yet
                         if (value[0].startsWith("TBC")) {
                             element.html(`<span class="to_be_confirmed">${value[0]}</span>`);
+                            // Make the image darker
                             element.parent().parent().find(".overlay").css({
                                 "opacity": 0.9
                             });
+                            // Stop the interval so it's not wasting power
                             clearInterval(intervals[timer]);
                             return;
                         } else {
@@ -186,13 +195,12 @@
 
                         // Time calculations for days, hours, minutes and seconds
                         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                        var hours = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 *
-                            60)), 2);
-                        var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-                            2);
+                        var hours = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), 2);
+                        var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)), 2);
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
 
-
+                        // Check if it's less than a day til release or not
+                        // Display the timer accordingly
                         if (!released) {
                             if (days > 0) {
                                 element.html(days + " days");
