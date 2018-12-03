@@ -1,3 +1,8 @@
+@font-face {
+    src: url("../fonts/Gotham\ Bold\ Regular.ttf");
+    font-family: Gotham;
+}
+
 html,
 body {
     height: 100%;
@@ -10,8 +15,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
-
 
 main {
     max-width: 1600px;
@@ -21,7 +26,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 main .grid {
@@ -29,7 +34,7 @@ main .grid {
     width: 40%;
     display: grid;
 
-    grid-template-areas: 
+    grid-template-areas:
         "r r p p"
         "r r p p"
         "r r p p"
@@ -43,68 +48,28 @@ main .grid {
 
 main .item {
     /* Defaults they have in common fonts n shit*/
-    box-shadow: none;
-    transition: box-shadow .5s;
+    transition: all .5s;
     box-sizing: border-box;
     position: relative;
     cursor: pointer;
 
     overflow: hidden;
-}
-
-main .item::before, main .item::after {
-    box-sizing: inherit;
-    content: '';
-    position: absolute;
-    width: 100%;
+    width: 300px;
     height: 100%;
-
-    border: 1px solid transparent;
-    width: 0;
-    height: 0;
-    z-index: 5;
-}
-
-
-main .item::before {
-    top: 0;
-    left: 0;
-}
-
-main .item::after {
-    top: 0;
-    left: 0;
+    
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    
 }
 
 main .item:hover {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-
-main .item:hover::before, main .item:hover::after {
-    width: 100%;
-    height: 100%;
-}
-
-main .item:hover::before {
-    border-top-color: #181b21;
-    border-right-color: #181b21;
-    transition: 
-        width 0.25s ease-out, 
-        height 0.25s ease-out 0.25s;
-}
-
-main .item:hover::after {
-    border-bottom-color: #181b21;
-    border-left-color: #181b21;
-    transition:
-        height 0.25s ease-out,
-        width 0.25s ease-out 0.25s;
-        
+    border-radius: 2px;
+    transform: scale(1.1);
+    z-index: 50;
 }
 
 
 
-.item .overlay {
+main .item .overlay {
     width: 100%;
     height: 150%;
 
@@ -112,15 +77,61 @@ main .item:hover::after {
     top: 0;
     left: 0;
 
-    background-color: #181b211a;
+    background-color: #181b21;
+    opacity: 0.1;
 
     transition: all .5s;
+
+    z-index: 2;
 }
 
 
 .item:hover .overlay {
-    transform: rotateZ(45deg);
-    top: 100px;
+    /*transform: rotateZ(45deg);*/
+    opacity: 0.6;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.item .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item img {
+    min-height: 100%;
+}
+
+.item .text {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    z-index: 4;
+    font-family: "Gotham";
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    font-size: 30px;
+
+    text-align: center;
 }
 
 
