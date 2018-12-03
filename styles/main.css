@@ -100,7 +100,7 @@ main .item .overlay {
     height: 100%;
     overflow: hidden;
     z-index: 1;
-    
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -149,9 +149,18 @@ main .periodic {
     NOT FINAL
 */
 
-/*@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1600px) {
     main {
         width: 100%;
+    }
+
+    main .grid {
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    main {
         height: 100%;
     }
 
@@ -163,4 +172,4 @@ main .periodic {
         grid-template-rows: auto;
         grid-template-columns: auto;
     }
-}*/
+}
