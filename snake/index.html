@@ -8,35 +8,59 @@
 
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Exo+2:700" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:700" rel="stylesheet">
 </head>
 
 <body>
 
     <div class="over container">
         <div class="menu">
-            DED
-            <button class="restart stand_out">Restart</button>
+            <header>
+                DEAD
+            </header>
+            <main>
+                Score: XXXX
+            </main>
+            <footer>
+                <button class="restart stand_out">Restart</button>
+            </footer>
         </div>
     </div>
+
 
     <div class="pause container">
         <div class="menu">
-            PAUSED
-            Space again to resume
-            <button class="restart stand_out">Restart</button>
+            <header>
+                PAUSED
+            </header>
+            <main>
+                ESC <br>to resume
+            </main>
+            <footer>
+                <button class="restart stand_out">Restart</button>
+            </footer>
         </div>
     </div>
+
 
     <div class="main container">
         <div class="menu">
-            <button id="start">Start</button>
-            <button>Your Scores</button>
-            <button class="stand_out">Github</button>
+            <header>SNAKE</header>
+            <main>
+
+            </main>
+            <footer>
+                <button id="start">Start</button>
+                <button>Your Scores</button>
+                <button class="stand_out">Github</button>
+            </footer>
         </div>
     </div>
 
+
     <canvas id="gameCanvas" width="500" height="500"></canvas>
+
+
 
     <script type="text/javascript" src="scripts/game.js"></script>
 
@@ -48,10 +72,10 @@
 
         $(".restart").on("click", function () {
             $(".pause, .over").css("display", "none");
-            
+
             clearInterval(interval);
             reset();
-            
+
             main();
         });
     </script>

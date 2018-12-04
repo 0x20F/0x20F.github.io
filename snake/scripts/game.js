@@ -97,7 +97,7 @@ function main() {
         
         }
 
-    }, 100);
+    }, 50);
 }
 
 
@@ -148,8 +148,8 @@ function drawSnake() {
 }
 
 function drawSnakePart(sp) {
-    ctx.fillStyle = "lightgreen";
-    ctx.strokeStyle = "darkgreen";
+    ctx.fillStyle = "black";
+    ctx.strokeStyle = "white";
 
     ctx.fillRect(sp.x, sp.y, 10, 10);
     ctx.strokeRect(sp.x, sp.y, 10, 10);
