@@ -31,18 +31,12 @@ main {
 
 main .grid {
     height: 80%;
-    display: grid;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    grid-template-areas:
-        "r r p p"
-        "r r p p"
-        "r r p p"
-        "r r p p"
-        "r r p p"
-        "r r p p"
-        "r r p p";
-
-    grid-gap: 3rem;
+    flex-wrap: wrap;
 }
 
 main .item {
@@ -55,7 +49,9 @@ main .item {
     width: 300px;
     height: 100%;
 
+    margin: 30px;
     border-radius: 10px;
+    flex-grow: grow;
     
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     
@@ -138,6 +134,7 @@ main .periodic {
 
 
 
+
 @media screen and (max-width: 1600px) {
     main {
         width: 100%;
@@ -145,6 +142,12 @@ main .periodic {
 
     main .grid {
         width: auto;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    main .item {
+        flex-grow: 1;
     }
 }
 
@@ -157,6 +160,5 @@ main .periodic {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
     }
 }
