@@ -92,6 +92,8 @@
                 drawFood();
                 advanceSnake();
                 drawSnake();
+            } else if (pause == true && !didGameEnd()) {
+                console.log("whale whale whale");
             } else {
                 console.log("YOU DIED THIS IS MENU");
                 clearCanvas();
@@ -186,6 +188,11 @@
                         dx = 0;
                         dy = 10;
                     }
+                    break;
+                case 32:
+                    // Space/Pause
+                    console.log("Worked?!");
+                    pause = !pause;
                     break;
             }
         }
