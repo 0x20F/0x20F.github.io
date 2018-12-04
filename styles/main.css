@@ -160,11 +160,9 @@ main .periodic {
     }
 
     main .grid {
-        grid-template-areas: 
-            "r"
-            "p";
-
-        grid-template-rows: auto;
-        grid-template-columns: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 }
