@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Snake</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Exo+2:700" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="over container">
+        <div class="menu">
+            <header>
+                DEAD
+            </header>
+            <main id="score">
+                Score: XXXX
+            </main>
+            <footer>
+                <button class="restart stand_out">Restart</button>
+            </footer>
+        </div>
+    </div>
+
+
+    <div class="pause container">
+        <div class="menu">
+            <header>
+                PAUSED
+            </header>
+            <main>
+                <span class="key">ESC</span> <br>to resume
+            </main>
+            <footer>
+                <button class="restart stand_out">Restart</button>
+            </footer>
+        </div>
+    </div>
+
+
+    <div class="main container">
+        <div class="menu">
+            <header>SNAKE</header>
+            <main>
+
+            </main>
+            <footer>
+                <button id="start">Start</button>
+                <button>Your Scores</button>
+                <button class="stand_out">Github</button>
+            </footer>
+        </div>
+    </div>
+
+
+    <canvas id="gameCanvas" width="500" height="500"></canvas>
+
+
+
+    <script type="text/javascript" src="scripts/game.js"></script>
+
+    <script type="text/javascript">
+        $("#start").on("click", function () {
+            $(".main").css("display", "none");
+            main(); // main() inside game.js
+        });
+
+        $(".restart").on("click", function () {
+            $(".pause, .over").css("display", "none");
+
+            clearInterval(interval);
+            reset();
+
+            main();
+        });
+    </script>
+</body>
+
+</html>

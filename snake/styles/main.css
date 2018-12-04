@@ -1,0 +1,141 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+canvas {
+    transition: box-shadow .5s, opacity 0.5s;
+    border-radius: 2px;
+    border: 4px solid #181b21;
+
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    opacity: 0;
+
+    margin: 30px 0;
+}
+
+.container {
+    position: absolute;
+
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    display: none;
+    z-index: 50;
+}
+
+.container .menu {
+    width: 300px;
+    height: 500px;
+
+    background-color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    overflow: hidden;
+
+    position: relative;
+}
+
+.container .menu header {
+
+    height: 80px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Exo 2";
+    font-size: 22px;
+}
+
+.container .menu button {
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    height: 80px;
+    cursor: pointer;
+
+    background-color: #fff;
+
+    font-family: "Exo 2";
+    font-size: 18px;
+
+    transition: all .5s;
+}
+
+.container .menu button:hover {
+    background-color: #181b21; 
+    color: #fff;
+}
+
+.container .menu main {
+    text-align: center;
+
+    font-family: "Exo 2";
+    font-size: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .menu footer {
+    height: auto;
+    width: 100%;
+}
+
+/*HMMMM*/
+.stand_out { 
+    background-color: #181b21 !important;
+    color: #fff !important;
+}
+
+.key {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+    color: #fff;
+    background-color: #181b21;
+    opacity: 0.7;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.over header {
+    color: #e03c3c;
+}
