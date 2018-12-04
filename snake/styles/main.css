@@ -16,11 +16,13 @@ body {
 
 canvas {
     transition: box-shadow .5s, opacity 0.5s;
-    border-radius: 10px;
+    border-radius: 2px;
     border: 4px solid #181b21;
 
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     opacity: 0;
+
+    margin: 30px 0;
 }
 
 .container {
@@ -94,6 +96,9 @@ canvas {
 
 .container .menu main {
     text-align: center;
+
+    font-family: "Exo 2";
+    font-size: 18px;
 }
 
 .container .menu footer {

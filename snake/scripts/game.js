@@ -34,6 +34,7 @@ let foodX = rand(0, gc.width - 10);
 let foodY = rand(0, gc.height - 10);
 
 let score = 0;
+let speed = 60;
 let pause = false;
 let changingDirection = false;
 
@@ -42,6 +43,7 @@ ctx.fillStyle = BACKGROUND_COLOR;
 
 ctx.fillRect(0, 0, gc.width, gc.height);
 
+ctx.imageSmoothingEnabled = false;
 
 document.addEventListener("keydown", changeDirection);
 
@@ -85,7 +87,7 @@ function main() {
             if (dead == true) {
                 // Show game over menu here
                 $(".over").css("display", "flex");
-                console.log("YOU DIED THIS IS MENU");
+                $("#score").text("Score: " + score);
 
                 reset();
 
@@ -97,7 +99,7 @@ function main() {
         
         }
 
-    }, 50);
+    }, speed);
 }
 
 
@@ -266,7 +268,7 @@ function drawFood() {
 }
 
 function didGameEnd() {
-    for (let i = 4; i < snake.length; i++) {
+    for (let i = 5; i < snake.length; i++) {
         let didCollide = snake[i].x === snake[0].x && snake[i].y === snake[0].y;
 
         if (didCollide) return true;
