@@ -99,6 +99,11 @@ canvas {
 
     font-family: "Exo 2";
     font-size: 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .container .menu footer {
@@ -110,6 +115,19 @@ canvas {
 .stand_out { 
     background-color: #181b21 !important;
     color: #fff !important;
+}
+
+.key {
+    width: 30px;
+    height: 30px;
+    font-size: 11px;
+    color: #fff;
+    background-color: #181b21;
+    opacity: 0.7;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .main {
