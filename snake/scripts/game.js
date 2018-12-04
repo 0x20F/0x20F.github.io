@@ -35,6 +35,7 @@ let foodY = 0;
 
 let score = 0;
 let pause = false;
+let changingDirection = false;
 
 // Style it a bit
 ctx.fillStyle = BACKGROUND_COLOR;
@@ -57,25 +58,40 @@ gc.height = window.innerHeight / 2;
 
 
 // Variables used in the interval
-let deadCheck = false; // Only check if youre dead once after pause;
+let dead = false; // Only check if youre dead once after pause;
 
 function main() {
+
     drawSnake();
 
     let interval = setInterval(function () {
+        
+        changingDirection = false;
+
         if (pause == false) {
+            
             clearCanvas();
             drawFood();
             advanceSnake();
             drawSnake();
+
         } else if (pause == true) {
-            if (deadCheck == true) {
+            
+            if (dead == true) {
+                // Show game over menu here
+                $(".over").css("display", "flex");
                 console.log("YOU DIED THIS IS MENU");
+
+                reset();
+
                 clearInterval(interval);
             } else {
-                console.log("whale whale whale you can pause");
+                // Show pause menu here
+                console.log("Game is paused");
             }
+        
         }
+
     }, 100);
 }
 
@@ -91,7 +107,35 @@ function main() {
 
 
 // Functions, names will change later
+function reset() {
+    pause = false;
+    dead = false;
+    
+    clearCanvas();
+    createFood();
 
+    snake = [{
+        x: 150,
+        y: 150
+    },
+    {
+        x: 140,
+        y: 150
+    },
+    {
+        x: 130,
+        y: 150
+    },
+    {
+        x: 120,
+        y: 150
+    },
+    {
+        x: 110,
+        y: 150
+    }
+];
+}
 
 
 function drawSnake() {
@@ -120,7 +164,7 @@ function advanceSnake() {
         score += 10;
     } else if (didGameEnd()) {
         pause = true;
-        deadCheck = true;
+        dead = true;
     } else {
         snake.pop();
     }
@@ -135,6 +179,11 @@ function clearCanvas() {
 }
 
 function changeDirection(e) {
+    if(changingDirection == true) return;
+
+
+    changingDirection = true;
+
     const pressed = e.keyCode;
     const goingUp = dy === -10;
     const goingDown = dy === 10;
@@ -168,8 +217,14 @@ function changeDirection(e) {
             break;
         case 32:
             // Space/Pause
-            deadCheck = didGameEnd();
-            console.log(deadCheck);
+            if($(".pause").is(":visible")) {
+                $(".pause").css("display", "none");
+            } else {
+                $(".pause").css("display", "flex");
+            }
+
+            dead = didGameEnd();
+            console.log(dead);
             pause = !pause;
             break;
     }
