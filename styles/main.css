@@ -31,7 +31,6 @@ main {
 
 main .grid {
     height: 80%;
-    width: 40%;
     display: grid;
 
     grid-template-areas:
@@ -60,10 +59,6 @@ main .item {
     
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     
-}
-
-main .item:hover {
-
 }
 
 
@@ -140,7 +135,6 @@ main .releases {
 main .periodic {
     grid-area: p;
 }
-
 
 
 
