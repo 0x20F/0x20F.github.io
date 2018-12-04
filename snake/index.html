@@ -74,28 +74,22 @@
 
 
         document.addEventListener("keydown", changeDirection);
-        window.addEventListener("resize", resizeCanvas, false);
 
+        gc.width = window.innerWidth / 2;
+        gc.height = window.innerHeight / 2;
 
-        resizeCanvas();
+        drawSnake();
 
+        setInterval(function () {
+            clearCanvas();
+            drawFood();
+            advanceSnake();
+            drawSnake();
+        }, 100);
 
 
         // Functions, names will change later
 
-        function resizeCanvas() {
-            gc.width = window.innerWidth / 2;
-            gc.height = window.innerHeight / 2;
-
-            drawSnake();
-
-            setInterval(function () {
-                clearCanvas();
-                drawFood();
-                advanceSnake();
-                drawSnake();
-            }, 100);
-        }
 
 
         function drawSnake() {
@@ -109,27 +103,21 @@
             ctx.fillRect(sp.x, sp.y, 10, 10);
             ctx.strokeRect(sp.x, sp.y, 10, 10);
         }
-
-        let i = 0;
+        
         function advanceSnake() {
             const head = {
                 x: snake[0].x + dx,
                 y: snake[0].y + dy
             };
             snake.unshift(head);
-            
+
             let didEatFood = snake[0].x === foodX && snake[0].y === foodY;
-            if(i < 100) { // TEMP
-                i++;
-                createFood();
-                return;
-            }
             
-            if(didEatFood) {
+            if (didEatFood) {
                 createFood();
                 score += 10;
                 console.log("Score: " + score);
-            } else if(didGameEnd()) {
+            } else if (didGameEnd()) {
                 console.log("shit");
             } else {
                 snake.pop();
@@ -151,27 +139,27 @@
             const goingRight = dx === 10;
             const goingLeft = dx === -10;
 
-            switch(pressed) {
+            switch (pressed) {
                 case 37: // left
-                    if(!goingRight) {
+                    if (!goingRight) {
                         dx = -10;
                         dy = 0;
                     }
                     break;
                 case 39: // Right
-                    if(!goingLeft) {
+                    if (!goingLeft) {
                         dx = 10;
                         dy = 0;
                     }
                     break;
                 case 38: // Up
-                    if(!goingDown) {
+                    if (!goingDown) {
                         dx = 0;
                         dy = -10;
                     }
                     break;
                 case 40: // Down
-                    if(!goingUp) {
+                    if (!goingUp) {
                         dx = 0;
                         dy = 10;
                     }
@@ -180,7 +168,7 @@
         }
 
         function rand(min, max) {
-            return Math.round((Math.random() * (max-min) + min) / 10) * 10;
+            return Math.round((Math.random() * (max - min) + min) / 10) * 10;
         }
 
         function createFood() {
@@ -189,7 +177,7 @@
 
             snake.forEach(function isFoodOnSnake(part) {
                 let foodIsOnSnake = part.x == foodX && part.y == foodY;
-                if(foodIsOnSnake) {
+                if (foodIsOnSnake) {
                     createFood();
                 }
             });
@@ -204,10 +192,10 @@
         }
 
         function didGameEnd() {
-            for(let i = 4; i < snake.length; i++) {
+            for (let i = 4; i < snake.length; i++) {
                 let didCollide = snake[i].x === snake[0].x && snake[i].y === snake[0].y;
 
-                if(didCollide) return true;
+                if (didCollide) return true;
             }
 
             const hitLeftWall = snake[0].x < 0;
