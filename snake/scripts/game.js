@@ -30,8 +30,8 @@ let snake = [{
 let dx = 10;
 let dy = 0;
 
-let foodX = 0;
-let foodY = 0;
+let foodX = rand(0, gc.width - 10);
+let foodY = rand(0, gc.height - 10);
 
 let score = 0;
 let pause = false;
@@ -49,8 +49,8 @@ document.addEventListener("keydown", changeDirection);
 
 
 
-gc.width = window.innerWidth / 2;
-gc.height = window.innerHeight / 2;
+//gc.width = window.innerWidth / 2;
+//gc.height = window.innerHeight / 2;
 
 
 
@@ -59,13 +59,16 @@ gc.height = window.innerHeight / 2;
 
 // Variables used in the interval
 let dead = false; // Only check if youre dead once after pause;
+let interval;
 
 function main() {
 
     drawSnake();
 
-    let interval = setInterval(function () {
+    interval = setInterval(function () {
         
+        $("canvas").css("opacity", "1");
+
         changingDirection = false;
 
         if (pause == false) {
@@ -76,6 +79,8 @@ function main() {
             drawSnake();
 
         } else if (pause == true) {
+            
+            $("canvas").css("opacity", "0");
             
             if (dead == true) {
                 // Show game over menu here
@@ -215,12 +220,18 @@ function changeDirection(e) {
                 dy = 10;
             }
             break;
-        case 32:
-            // Space/Pause
+        case 27:
+            // Esc
             if($(".pause").is(":visible")) {
+
                 $(".pause").css("display", "none");
+                $("canvas").css("box-shadow", "0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)");
+
             } else {
+
                 $(".pause").css("display", "flex");
+                $("canvas").css("box-shadow", "none");
+
             }
 
             dead = didGameEnd();
