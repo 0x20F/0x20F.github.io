@@ -31,7 +31,6 @@ main {
 
 main .grid {
     height: 80%;
-    width: 40%;
     display: grid;
 
     grid-template-areas:
@@ -47,7 +46,6 @@ main .grid {
 }
 
 main .item {
-    /* Defaults they have in common fonts n shit*/
     transition: all .5s;
     box-sizing: border-box;
     position: relative;
@@ -56,15 +54,11 @@ main .item {
     overflow: hidden;
     width: 300px;
     height: 100%;
+
+    border-radius: 10px;
     
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     
-}
-
-main .item:hover {
-    border-radius: 2px;
-    transform: scale(1.1);
-    z-index: 50;
 }
 
 
@@ -87,7 +81,6 @@ main .item .overlay {
 
 
 .item:hover .overlay {
-    /*transform: rotateZ(45deg);*/
     opacity: 0.6;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
@@ -145,10 +138,6 @@ main .periodic {
 
 
 
-/*
-    NOT FINAL
-*/
-
 @media screen and (max-width: 1600px) {
     main {
         width: 100%;
@@ -165,11 +154,9 @@ main .periodic {
     }
 
     main .grid {
-        grid-template-areas: 
-            "r"
-            "p";
-
-        grid-template-rows: auto;
-        grid-template-columns: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 }
