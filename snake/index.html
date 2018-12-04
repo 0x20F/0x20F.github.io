@@ -25,11 +25,11 @@
 
 <body>
 
-    <canvas id="gameCanvas" width="100%" height="100%2"></canvas>
+    <canvas id="gameCanvas" width="100%" height="100%"></canvas>
 
     <script type="text/javascript">
         // Constants
-        const BORDER_COLOR = "black";
+        const BORDER_COLOR = "white";
         const BACKGROUND_COLOR = "white";
 
         let gc = document.getElementById("gameCanvas");
@@ -64,6 +64,7 @@
         let foodY = 0;
 
         let score = 0;
+        let pause = false;
 
         // Style it a bit
         ctx.fillStyle = BACKGROUND_COLOR;
@@ -71,21 +72,42 @@
         ctx.fillRect(0, 0, gc.width, gc.height);
 
 
-
-
         document.addEventListener("keydown", changeDirection);
+
+
+
+
 
         gc.width = window.innerWidth / 2;
         gc.height = window.innerHeight / 2;
 
+
+
         drawSnake();
 
+
         setInterval(function () {
-            clearCanvas();
-            drawFood();
-            advanceSnake();
-            drawSnake();
+            if(pause == false) {
+                clearCanvas();
+                drawFood();
+                advanceSnake();
+                drawSnake();
+            } else {
+                console.log("YOU DIED THIS IS MENU");
+                clearCanvas();
+            }
         }, 100);
+
+
+
+
+
+
+
+
+
+
+
 
 
         // Functions, names will change later
@@ -103,7 +125,7 @@
             ctx.fillRect(sp.x, sp.y, 10, 10);
             ctx.strokeRect(sp.x, sp.y, 10, 10);
         }
-        
+
         function advanceSnake() {
             const head = {
                 x: snake[0].x + dx,
@@ -118,6 +140,7 @@
                 score += 10;
                 console.log("Score: " + score);
             } else if (didGameEnd()) {
+                pause = true;
                 console.log("shit");
             } else {
                 snake.pop();
@@ -129,7 +152,7 @@
             ctx.strokeStyle = "black";
 
             ctx.fillRect(0, 0, gc.width, gc.height);
-            ctx.strokeRect(0, 0, gc.width, gc.height);
+            //ctx.strokeRect(0, 0, gc.width, gc.height);
         }
 
         function changeDirection(e) {
