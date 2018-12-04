@@ -20,6 +20,10 @@
             justify-content: center;
             align-items: center;
         }
+
+        canvas {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+        }
     </style>
 </head>
 
@@ -85,6 +89,8 @@
 
         drawSnake();
 
+        // Variables used in the interval
+        let deadCheck = false; // Only check if youre dead once after pause;
 
         setInterval(function () {
             if(pause == false) {
@@ -92,11 +98,13 @@
                 drawFood();
                 advanceSnake();
                 drawSnake();
-            } else if (pause == true && !didGameEnd()) {
-                console.log("whale whale whale");
-            } else {
-                console.log("YOU DIED THIS IS MENU");
-                clearCanvas();
+            } else if (pause == true) {
+                if(deadCheck == true) {
+                    console.log("YOU DIED THIS IS MENU");
+                    
+                } else {
+                    console.log("whale whale whale you can pause");
+                }
             }
         }, 100);
 
@@ -140,10 +148,9 @@
             if (didEatFood) {
                 createFood();
                 score += 10;
-                console.log("Score: " + score);
             } else if (didGameEnd()) {
                 pause = true;
-                console.log("shit");
+                deadCheck = true;
             } else {
                 snake.pop();
             }
@@ -191,7 +198,8 @@
                     break;
                 case 32:
                     // Space/Pause
-                    console.log("Worked?!");
+                    deadCheck = didGameEnd();
+                    console.log(deadCheck);
                     pause = !pause;
                     break;
             }
