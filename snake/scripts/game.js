@@ -19,7 +19,7 @@ let dy = 0;
 let foodX = rand(0, gc.width - size);
 let foodY = rand(0, gc.height - size);
 
-let pause = false;
+let pause = true;
 let changingDirection = false;
 
 // Variables used in the interval
@@ -43,6 +43,7 @@ document.addEventListener("keydown", (e) => {
  * - Called by button events in the menus
  */
 function main() {
+    pause = false;
 
     drawSnake();
 
@@ -215,6 +216,16 @@ function onKeyPress(e) {
     const pressed = e.keyCode;
 
     switch(pressed) {
+        case 82: // R
+            if(pause && $(".pause, .over").is(":visible")) {
+                restart();
+            }
+            break;
+        case 83: // S
+            if(pause && $(".main").is(":visible")) {
+                start();
+            }
+            break;
         case 27:
             // Esc
             if($(".pause").is(":visible")) {
@@ -289,4 +300,24 @@ function checkDeath() {
     const hitBottomWall = snake[0].y > gc.height - 10;
 
     return hitLeftWall || hitRightWall || hitTopWall || hitBottomWall;
+}
+
+
+
+
+
+
+// Functions used both here and in index.html
+function restart() {
+    $(".pause, .over").css("display", "none");
+
+    clearInterval(interval);
+    reset();
+
+    main();
+}
+
+function start() {
+    $(".main").css("display", "none");
+    main();
 }

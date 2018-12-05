@@ -66,18 +66,14 @@
 
     <script type="text/javascript">
         $("#start").on("click", function () {
-            $(".main").css("display", "none");
-            main(); // main() inside game.js
+            start();
         });
 
         $(".restart").on("click", function () {
-            $(".pause, .over").css("display", "none");
-
-            clearInterval(interval);
-            reset();
-
-            main();
+            restart();            
         });
+
+        
     </script>
 </body>
 
