@@ -10,8 +10,9 @@ html, body {
 
 body {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
 }
 
 canvas {
@@ -24,6 +25,27 @@ canvas {
 
     margin: 30px 0;
 }
+
+.controls {
+    width: 96px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+
+.empty {
+    background-color: transparent !important;
+}
+
+.s_margin {
+    margin: 1px !important;
+}
+
+
+
 
 .container {
     position: absolute;
@@ -109,7 +131,6 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
 
 .container .menu footer {
