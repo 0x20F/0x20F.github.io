@@ -1,68 +1,47 @@
-// Constants
-const BORDER_COLOR = "white";
-const BACKGROUND_COLOR = "white";
-
 let gc = document.getElementById("gameCanvas");
 let ctx = gc.getContext("2d");
 
-let snake = [{
-        x: 150,
-        y: 150
-    },
-    {
-        x: 140,
-        y: 150
-    },
-    {
-        x: 130,
-        y: 150
-    },
-    {
-        x: 120,
-        y: 150
-    },
-    {
-        x: 110,
-        y: 150
-    }
+let snake = [
+    {x: 150, y: 150},
+    {x: 140, y: 150},
+    {x: 130, y: 150},
+    {x: 120, y: 150},
+    {x: 110, y: 150}
 ];
+
+let score = 0;
+let speed = 60;
+let size = 10;
 
 let dx = 10;
 let dy = 0;
 
-let foodX = rand(0, gc.width - 10);
-let foodY = rand(0, gc.height - 10);
+let foodX = rand(0, gc.width - size);
+let foodY = rand(0, gc.height - size);
 
-let score = 0;
-let speed = 60;
 let pause = false;
 let changingDirection = false;
-
-// Style it a bit
-ctx.fillStyle = BACKGROUND_COLOR;
-
-ctx.fillRect(0, 0, gc.width, gc.height);
-
-ctx.imageSmoothingEnabled = false;
-
-document.addEventListener("keydown", changeDirection);
-
-
-
-
-
-//gc.width = window.innerWidth / 2;
-//gc.height = window.innerHeight / 2;
-
-
-
-
-
 
 // Variables used in the interval
 let dead = false; // Only check if youre dead once after pause;
 let interval;
 
+
+ctx.fillRect(0, 0, gc.width, gc.height);
+
+document.addEventListener("keydown", (e) => {
+    changeDir(e);
+    onKeyPress(e);
+});
+
+
+
+
+
+/**
+ * Runs the entire game loop
+ * - Called by button events in the menus
+ */
 function main() {
 
     drawSnake();
@@ -76,25 +55,22 @@ function main() {
         if (pause == false) {
             
             clearCanvas();
-            drawFood();
-            advanceSnake();
+            drawPickup("red", "darkred");
+            moveSnake();
             drawSnake();
 
-        } else if (pause == true) {
+        } else {
             
             $("canvas").css("opacity", "0");
             
             if (dead == true) {
-                // Show game over menu here
+                // Show game-over menu here
                 $(".over").css("display", "flex");
                 $("#score").text("Score: " + score);
 
                 reset();
 
                 clearInterval(interval);
-            } else {
-                // Show pause menu here
-                console.log("Game is paused");
             }
         
         }
@@ -104,72 +80,70 @@ function main() {
 
 
 
-
-
-
-
-
-
-
-
-
-// Functions, names will change later
+/**
+ * Clear the game board
+ * - runs on death and resets everything to default
+ */
 function reset() {
     pause = false;
     dead = false;
     
     clearCanvas();
-    createFood();
+    createPickup();
 
-    snake = [{
-        x: 150,
-        y: 150
-    },
-    {
-        x: 140,
-        y: 150
-    },
-    {
-        x: 130,
-        y: 150
-    },
-    {
-        x: 120,
-        y: 150
-    },
-    {
-        x: 110,
-        y: 150
-    }
-];
+    snake = [
+        {x: 150, y: 150},
+        {x: 140, y: 150},
+        {x: 130, y: 150},
+        {x: 120, y: 150},
+        {x: 110, y: 150}
+    ];
 }
 
 
+
+/**
+ * Draw all snake parts
+ */
 function drawSnake() {
     snake.forEach(drawSnakePart);
 }
 
+
+
+/**
+ * Runs for every limb of the snake and 
+ * draws it on the board
+ * 
+ * @param {Object} sp 
+ */
 function drawSnakePart(sp) {
     ctx.fillStyle = "black";
     ctx.strokeStyle = "white";
 
-    ctx.fillRect(sp.x, sp.y, 10, 10);
-    ctx.strokeRect(sp.x, sp.y, 10, 10);
+    ctx.fillRect(sp.x, sp.y, size, size);
+    ctx.strokeRect(sp.x, sp.y, size, size);
 }
 
-function advanceSnake() {
+
+/**
+ * Move the snake in the direction
+ * it's pointing and check wether or not
+ * food was eaten.
+ */
+function moveSnake() {
     const head = {
         x: snake[0].x + dx,
         y: snake[0].y + dy
     };
     snake.unshift(head);
 
-    let didEatFood = snake[0].x === foodX && snake[0].y === foodY;
+    let ate = snake[0].x === foodX && snake[0].y === foodY;
 
-    if (didEatFood) {
-        createFood();
+    if (ate) {
+        createPickup();
         score += 10;
-    } else if (didGameEnd()) {
+    } else if (checkDeath()) {
         pause = true;
         dead = true;
     } else {
@@ -177,51 +151,70 @@ function advanceSnake() {
     }
 }
 
+
+/**
+ * Clears all drawings
+ */
 function clearCanvas() {
     ctx.fillStyle = "white";
-    ctx.strokeStyle = "black";
 
     ctx.fillRect(0, 0, gc.width, gc.height);
-    //ctx.strokeRect(0, 0, gc.width, gc.height);
 }
 
-function changeDirection(e) {
-    if(changingDirection == true) return;
 
+/**
+ * Check for keypresses and change direction
+ * accordingly
+ * @param {event} e 
+ */
+function changeDir(e) {
+    if(changingDirection == true) return;
 
     changingDirection = true;
 
     const pressed = e.keyCode;
-    const goingUp = dy === -10;
-    const goingDown = dy === 10;
-    const goingRight = dx === 10;
-    const goingLeft = dx === -10;
+    const gUp = dy === -size;
+    const gDown = dy === size;
+    const gRight = dx === size;
+    const gLeft = dx === -size;
 
     switch (pressed) {
         case 37: // left
-            if (!goingRight) {
-                dx = -10;
+            if (!gRight) {
+                dx = -size;
                 dy = 0;
             }
             break;
         case 39: // Right
-            if (!goingLeft) {
-                dx = 10;
+            if (!gLeft) {
+                dx = size;
                 dy = 0;
             }
             break;
         case 38: // Up
-            if (!goingDown) {
+            if (!gDown) {
                 dx = 0;
-                dy = -10;
+                dy = -size;
             }
             break;
         case 40: // Down
-            if (!goingUp) {
+            if (!gUp) {
                 dx = 0;
-                dy = 10;
+                dy = size;
             }
             break;
+        
+    }
+}
+
+
+/**
+ * Used to listen for menu shortcut presses
+ */
+function onKeyPress(e) {
+    const pressed = e.keyCode;
+
+    switch(pressed) {
         case 27:
             // Esc
             if($(".pause").is(":visible")) {
@@ -236,42 +229,58 @@ function changeDirection(e) {
 
             }
 
-            dead = didGameEnd();
-            console.log(dead);
+            dead = checkDeath();
             pause = !pause;
             break;
     }
 }
 
+
+
+/**
+ * Get a random value for pickup positioning
+ */
 function rand(min, max) {
-    return Math.round((Math.random() * (max - min) + min) / 10) * 10;
+    return Math.round((Math.random() * (max - min) + min) / size) * size;
 }
 
-function createFood() {
-    foodX = rand(0, gc.width - 10);
-    foodY = rand(0, gc.height - 10);
 
-    snake.forEach(function isFoodOnSnake(part) {
-        let foodIsOnSnake = part.x == foodX && part.y == foodY;
-        if (foodIsOnSnake) {
-            createFood();
+/**
+ * Create the food or powerup
+ */
+function createPickup() {
+    foodX = rand(0, gc.width - size);
+    foodY = rand(0, gc.height - size);
+
+    snake.forEach(function isOnSnake(part) {
+        let onSnake = part.x == foodX && part.y == foodY;
+        if (onSnake) {
+            createPickup();
         }
     });
 }
 
-// Change this to a more general "powerup" function
-function drawFood() {
-    ctx.fillStyle = "red";
-    ctx.strokeStyle = "darkred";
-    ctx.fillRect(foodX, foodY, 10, 10);
-    ctx.strokeRect(foodX, foodY, 10, 10);
+
+/**
+ * Draw the newly created food
+ */
+function drawPickup(fill, stroke) {
+    ctx.fillStyle = fill;
+    ctx.strokeStyle = stroke;
+
+    ctx.fillRect(foodX, foodY, size, size);
+    ctx.strokeRect(foodX, foodY, size, size);
 }
 
-function didGameEnd() {
-    for (let i = 5; i < snake.length; i++) {
-        let didCollide = snake[i].x === snake[0].x && snake[i].y === snake[0].y;
 
-        if (didCollide) return true;
+/**
+ * Check if a wall was hit or if the snake was hit
+ */
+function checkDeath() {
+    for (let i = 5; i < snake.length; i++) {
+        let collision = snake[i].x === snake[0].x && snake[i].y === snake[0].y;
+
+        if (collision) return true;
     }
 
     const hitLeftWall = snake[0].x < 0;
