@@ -1,5 +1,6 @@
 let gc = document.getElementById("gameCanvas");
 let ctx = gc.getContext("2d");
+ctx.scale(2, 2);
 
 let snake = [
     {x: 150, y: 150},
@@ -11,13 +12,13 @@ let snake = [
 
 let score = 0;
 let speed = 60;
-let size = 10;
+let size = 5;
 
-let dx = 10;
+let dx = 5;
 let dy = 0;
 
-let foodX = rand(0, gc.width - size);
-let foodY = rand(0, gc.height - size);
+let foodX = rand(0, gc.width - (size + gc.width / 2));
+let foodY = rand(0, gc.height - (size + gc.height / 2));
 
 let pause = true;
 let changingDirection = false;
@@ -69,8 +70,6 @@ function main() {
                 $(".over").css("display", "flex");
                 $("#score").text("Score: " + score);
 
-                reset();
-
                 clearInterval(interval);
             }
         
@@ -88,6 +87,7 @@ function main() {
 function reset() {
     pause = false;
     dead = false;
+    score = 0;
     
     clearCanvas();
     createPickup();
@@ -218,6 +218,7 @@ function onKeyPress(e) {
     switch(pressed) {
         case 82: // R
             if(pause && $(".pause, .over").is(":visible")) {
+                reset();
                 restart();
             }
             break;
@@ -260,8 +261,10 @@ function rand(min, max) {
  * Create the food or powerup
  */
 function createPickup() {
-    foodX = rand(0, gc.width - size);
-    foodY = rand(0, gc.height - size);
+    foodX = rand(0, gc.width - (size + gc.width / 2));
+    foodY = rand(0, gc.height - (size + gc.height / 2));
+
+    console.log("FOOD: " + foodX + " -> " + foodY);
 
     snake.forEach(function isOnSnake(part) {
         let onSnake = part.x == foodX && part.y == foodY;
@@ -295,9 +298,9 @@ function checkDeath() {
     }
 
     const hitLeftWall = snake[0].x < 0;
-    const hitRightWall = snake[0].x > gc.width - 10;
+    const hitRightWall = snake[0].x > gc.width - (size + gc.width / 2);
     const hitTopWall = snake[0].y < 0;
-    const hitBottomWall = snake[0].y > gc.height - 10;
+    const hitBottomWall = snake[0].y > gc.height - (size + gc.height / 2);
 
     return hitLeftWall || hitRightWall || hitTopWall || hitBottomWall;
 }
