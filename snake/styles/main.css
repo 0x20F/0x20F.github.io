@@ -91,6 +91,8 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    color: #181b21;
 }
 
 .container .menu button:hover {
@@ -117,8 +119,8 @@ canvas {
 
 /*HMMMM*/
 .stand_out { 
-    background-color: #181b21 !important;
-    color: #fff !important;
+    /*background-color: #181b21 !important;*/
+    /*color: #fff !important;*/
 }
 
 .key {
