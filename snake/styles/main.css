@@ -87,6 +87,10 @@ canvas {
     font-size: 18px;
 
     transition: all .5s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container .menu button:hover {
@@ -128,6 +132,7 @@ canvas {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 10px 0 0;
 }
 
 .main {
