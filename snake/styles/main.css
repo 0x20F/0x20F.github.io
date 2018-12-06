@@ -56,7 +56,7 @@ canvas {
     align-items: center;
     flex-direction: column;
 
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     overflow: hidden;
 
@@ -147,10 +147,7 @@ canvas {
     height: auto;
 }
 
-.bottom .power_info {
-    width: 50%;
-    height: 100%;
-}
+
 
 
 .bottom .controls {
@@ -162,7 +159,7 @@ canvas {
     flex-direction: column;
 }
 
-.bottom .controls header {
+.bottom header {
     width: 90%;
     height: auto;
     color: #181b21;
@@ -171,6 +168,10 @@ canvas {
     opacity: 0.7;
     margin-bottom: 20px;
     text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -243,6 +244,7 @@ canvas {
     height: 100%;
     opacity: 0.7;
 }
+
 
 
 
