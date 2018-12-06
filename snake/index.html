@@ -8,7 +8,8 @@
 
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Exo+2:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet"> 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
         crossorigin="anonymous">
 </head>
@@ -61,14 +62,24 @@
 
 
     <canvas id="gameCanvas" width="500" height="500"></canvas>
-    <div class="controls">
-        <div class="c_key empty"></div>
-        <div class="c_key up"><i class="fas fa-arrow-up"></i></div>
-        <div class="c_key empty"></div>
-        <br><!--???-->
-        <div class="c_key left"><i class="fas fa-arrow-left"></i></div>
-        <div class="c_key down"><i class="fas fa-arrow-down"></i></div>
-        <div class="c_key right"><i class="fas fa-arrow-right"></i></div>
+    <!-- Under the game screen, will contain controls and powerup info-->
+    <div class="bottom">
+        <div class="controls desktop"> <!--DESKTOP class is for easy hiding on phones soon tm-->
+            <header>Controls</header>
+            <div class="keys">
+                    <div class="c_key empty"></div>
+                    <div class="c_key up"><i class="fas fa-arrow-up"></i></div>
+                    <div class="c_key empty"></div>
+                    <br><!--???-->
+                    <div class="c_key left"><i class="fas fa-arrow-left"></i></div>
+                    <div class="c_key down"><i class="fas fa-arrow-down"></i></div>
+                    <div class="c_key right"><i class="fas fa-arrow-right"></i></div>
+            </div>
+        </div>
+
+        <div class="info">
+            <div class="WIP">MORE COMING SOON</div>
+        </div>
     </div>
 
 
