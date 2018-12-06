@@ -147,7 +147,7 @@ canvas {
     height: auto;
 }
 
-.bottom .info {
+.bottom .power_info {
     width: 50%;
     height: 100%;
 }
@@ -180,22 +180,18 @@ canvas {
 
     grid-gap: 1px;
     grid-template-columns: repeat(3, 50px);
-    grid-template-rows: repeat(2, 50px);
+    grid-template-rows: repeat(3, 50px);
 
     grid-template-areas:
         ". u ."
-        "l d r";
+        "l d r"
+        "e k k";
 
 }
 
 .empty {
     background-color: transparent !important;
 }
-
-.up {grid-area: u;}
-.down {grid-area: d;}
-.left {grid-area: l;}
-.right {grid-area: r;}
 
 /*For control keys visual*/
 .c_key {
@@ -210,6 +206,8 @@ canvas {
     justify-content: center;
     align-items: center;
     margin: 1px;
+    font-family: "Exo 2";
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
 .key {
@@ -224,6 +222,26 @@ canvas {
     justify-content: center;
     align-items: center;
     margin: 0 10px 0 0;
+}
+
+.up {grid-area: u;}
+.down {grid-area: d;}
+.left {grid-area: l;}
+.right {grid-area: r;}
+.esc {grid-area: e; margin-top: 2vh;}
+.key_info {
+    grid-area: k; 
+    margin-top: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 5px;
+    font-family: "Exo 2";
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
 }
 
 
