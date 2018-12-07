@@ -50,8 +50,6 @@ function main() {
 
     interval = setInterval(function () {
         
-        $("canvas").css("opacity", "1");
-
         changingDirection = false;
 
         if (pause == false) {
@@ -62,8 +60,6 @@ function main() {
             drawSnake();
 
         } else {
-            
-            $("canvas").css("opacity", "0");
             
             if (dead == true) {
                 // Show game-over menu here
