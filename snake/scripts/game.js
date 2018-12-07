@@ -38,6 +38,7 @@ document.addEventListener("keydown", (e) => {
 
 
 
+hideCanvasBorder();
 /**
  * Runs the entire game loop
  * - Called by button events in the menus
@@ -220,6 +221,7 @@ function onKeyPress(e) {
         case 83: // S
             if(pause && $(".main").is(":visible")) {
                 start();
+                showCanvasBorder();
             }
             break;
         case 27:
@@ -228,12 +230,12 @@ function onKeyPress(e) {
                 if($(".pause").is(":visible")) {
 
                     $(".pause").css("display", "none");
-                    $("canvas").css("box-shadow", "0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)");
+                    showCanvasBorder();
     
                 } else {
     
                     $(".pause").css("display", "flex");
-                    $("canvas").css("box-shadow", "none");
+                    hideCanvasBorder();
     
                 }
 
@@ -305,7 +307,18 @@ function checkDeath() {
 
 
 
+// Styling functions
+function hideCanvasBorder() {
+    $("canvas").css({
+        "border-color": "rgba(24, 27, 33, 0.7)"
+    });
+}
 
+function showCanvasBorder() {
+    $("canvas").css({
+        "border-color": "#181b21"
+    });
+}
 
 // Functions used both here and in index.html
 function restart() {
