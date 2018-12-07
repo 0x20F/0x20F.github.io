@@ -1,13 +1,11 @@
 let storage = window.localStorage;
-let info = storage.getItem("info"); // A json with all the highscores and settings (?)
+let info = JSON.parse(storage.getItem("info")); // A json with all the highscores and settings (?)
 
 // If it's running for the first time
 if(info == null) {
     info = {
         "Score": [],
         "Name": "You",
-        "Theme": "White"
-        "__SETTINGS?": "IDK"
     };
 }
 
