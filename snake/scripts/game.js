@@ -73,12 +73,14 @@ function main() {
         } else {
             
             if (dead == true) {
+                $(".over #score ul").html("");
+                clearInterval(interval);
+                
                 save(score);
                 // Show game-over menu here
                 $(".over").css("display", "flex");
-                $("#score").text("Score: " + score);
-
-                clearInterval(interval);
+                
+                // WORK IN PROGRESS
             }
         
         }
@@ -351,10 +353,5 @@ function start() {
 }
 
 function save(score) {
-    info["Score"].push(score);
-    info["Score"].sort(function(a, b){return a-b;});
-    
-    let json = JSON.stringify(info);
-    
-    storage.setItem("info", json);
+    // WORK IN PROGRESS
 }

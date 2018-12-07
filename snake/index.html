@@ -8,8 +8,8 @@
 
     <link rel="stylesheet" type="text/css" href="styles/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
-    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
         crossorigin="anonymous">
 </head>
@@ -22,7 +22,8 @@
                 DEAD
             </header>
             <main id="score">
-                Score: XXXX
+                <ul>
+                </ul>
             </main>
             <footer>
                 <button class="restart stand_out"><span class="key">R</span> restart</button>
@@ -55,7 +56,7 @@
             <footer>
                 <button id="start"><span class="key">S</span> start</button>
                 <button><span class="key">H</span> high scores</button>
-                
+
             </footer>
         </div>
     </div>
@@ -64,15 +65,16 @@
     <canvas id="gameCanvas" width="500" height="500"></canvas>
     <!-- Under the game screen, will contain controls and powerup info-->
     <div class="bottom">
-        <div class="controls desktop"> <!--DESKTOP class is for easy hiding on phones soon tm-->
+        <div class="controls desktop">
+            <!--DESKTOP class is for easy hiding on phones soon tm-->
             <header>Controls</header>
             <div class="keys">
-                    <div class="c_key up"><i class="fas fa-arrow-up"></i></div>
-                    <div class="c_key left"><i class="fas fa-arrow-left"></i></div>
-                    <div class="c_key down"><i class="fas fa-arrow-down"></i></div>
-                    <div class="c_key right"><i class="fas fa-arrow-right"></i></div>
-                    <div class="c_key esc">ESC</div>
-                    <div class="key_info">pause/resume</div>
+                <div class="c_key up"><i class="fas fa-arrow-up"></i></div>
+                <div class="c_key left"><i class="fas fa-arrow-left"></i></div>
+                <div class="c_key down"><i class="fas fa-arrow-down"></i></div>
+                <div class="c_key right"><i class="fas fa-arrow-right"></i></div>
+                <div class="c_key esc">ESC</div>
+                <div class="key_info">pause/resume</div>
             </div>
         </div>
     </div>
@@ -87,10 +89,8 @@
         });
 
         $(".restart").on("click", function () {
-            restart();            
+            restart();
         });
-
-        
     </script>
 </body>
 
