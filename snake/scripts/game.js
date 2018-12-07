@@ -27,14 +27,13 @@ let changingDirection = false;
 let dead = false; // Only check if youre dead once after pause;
 let interval;
 
-
+ctx.fillStyle = "white";
 ctx.fillRect(0, 0, gc.width, gc.height);
 
 document.addEventListener("keydown", (e) => {
     changeDir(e);
     onKeyPress(e);
 });
-
 
 
 
@@ -225,20 +224,22 @@ function onKeyPress(e) {
             break;
         case 27:
             // Esc
-            if($(".pause").is(":visible")) {
+            if(!dead) {
+                if($(".pause").is(":visible")) {
 
-                $(".pause").css("display", "none");
-                $("canvas").css("box-shadow", "0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)");
+                    $(".pause").css("display", "none");
+                    $("canvas").css("box-shadow", "0 0 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23)");
+    
+                } else {
+    
+                    $(".pause").css("display", "flex");
+                    $("canvas").css("box-shadow", "none");
+    
+                }
 
-            } else {
-
-                $(".pause").css("display", "flex");
-                $("canvas").css("box-shadow", "none");
-
+                dead = checkDeath();
+                pause = !pause;
             }
-
-            dead = checkDeath();
-            pause = !pause;
             break;
     }
 }

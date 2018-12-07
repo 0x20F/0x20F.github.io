@@ -48,14 +48,12 @@ canvas {
     width: 500px;
     height: 500px;
 
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.56);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
-
-    border-radius: 2px;
     overflow: hidden;
 
     position: relative;
@@ -84,7 +82,7 @@ canvas {
     height: 80px;
     cursor: pointer;
 
-    background-color: #fff;
+    background-color: transparent;
 
     font-family: "Montserrat";
     font-size: 18px;
