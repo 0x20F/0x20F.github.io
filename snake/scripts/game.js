@@ -1,3 +1,16 @@
+let storage = window.localStorage;
+let info = storage.getItem("info"); // A json with all the highscores and settings (?)
+
+// If it's running for the first time
+if(info == null) {
+    info = {
+        "Score": [],
+        "Name": "You",
+        "Theme": "White"
+        "__SETTINGS?": "IDK"
+    };
+}
+
 let gc = document.getElementById("gameCanvas");
 let ctx = gc.getContext("2d");
 ctx.scale(2, 2);
@@ -62,6 +75,7 @@ function main() {
         } else {
             
             if (dead == true) {
+                save(score);
                 // Show game-over menu here
                 $(".over").css("display", "flex");
                 $("#score").text("Score: " + score);
@@ -320,6 +334,9 @@ function showCanvasBorder() {
     });
 }
 
+
+
+/* TYPICAL GAME FUNCTIONS */
 // Functions used both here and in index.html
 function restart() {
     $(".pause, .over").css("display", "none");
@@ -333,4 +350,13 @@ function restart() {
 function start() {
     $(".main").css("display", "none");
     main();
+}
+
+function save(score) {
+    info["Score"].push(score);
+    info["Score"].sort(function(a, b){return a-b;});
+    
+    let json = JSON.stringify(info);
+    
+    storage.setItem("info", json);
 }
