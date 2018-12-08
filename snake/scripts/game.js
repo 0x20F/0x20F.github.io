@@ -428,14 +428,14 @@ function start() {
 function save(score) {
     // Push the score.
     // Only if it's not a double
-    for(let i = 0; i < info["Score"].length; i++) {
-        if(info["Score"][i] == score) {
+    for(let i = 0; i < info.Score.length; i++) {
+        if(info.Score[i] == score) {
             return;
         }
     }
 
-    info["Score"].push(score);
-    info["Score"].sort(function(a, b) {return a - b;}).reverse();
+    info.Score.push(score);
+    info.Score.sort(function(a, b) {return a - b;}).reverse();
     
     storage.setItem("snake-info", JSON.stringify(info));
 }
