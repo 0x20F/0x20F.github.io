@@ -277,7 +277,7 @@ canvas {
 }
 
 #score ul li * {
-    width: 20%;
+    min-width: 20%;
 
     display: flex;
     justify-content: center;
@@ -295,6 +295,14 @@ canvas {
     color: rgba(24, 27, 33, 0.56);
     font-size: 20px;
     margin: 5px 0;
+}
+
+#score ul li .name {
+    justify-content: flex-end;
+}
+
+#score ul li .score {
+    justify-content: flex-start;
 }
 
 

@@ -89,17 +89,17 @@ function main() {
                         if(sc[i] == score) {
                             $("#score ul").append(
                                 `<li class="current_run">
-                                    <span class="score_item">${i + 1}. YOU</span>
+                                    <span class="score_item name">${i + 1}. YOU</span>
                                     <i class="fas fa-arrow-right"></i> 
-                                    <span class="score_item">${sc[i]}</span>
+                                    <span class="score_item score">${sc[i]}</span>
                                 </li>`);
                             current = true;
                         } else {
                             $("#score ul").append(
                                 `<li>
-                                    <span class="score_item">${i + 1}. YOU</span>
+                                    <span class="score_item name">${i + 1}. YOU</span>
                                     <i class="fas fa-arrow-right"></i> 
-                                    <span class="score_item">${sc[i]}</span>
+                                    <span class="score_item score">${sc[i]}</span>
                                 </li>`);
                         }
                     }
@@ -108,9 +108,9 @@ function main() {
                         $("#score ul").append(`<li class="separator"><i class="fas fa-ellipsis-h"></i></li>`);
                         $("#score ul").append(
                             `<li class="current_run">
-                                <span class="score_item">${i + 1}. YOU</span>
+                                <span class="score_item name">${i + 1}. YOU</span>
                                 <i class="fas fa-arrow-right"></i> 
-                                <span class="score_item">${sc[i]}</span>
+                                <span class="score_item score">${sc[i]}</span>
                             </li>`);
                     }
                 }
