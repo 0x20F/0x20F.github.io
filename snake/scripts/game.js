@@ -5,7 +5,11 @@ let info = JSON.parse(storage.getItem("snake-info")); // A json with all the hig
 if(info == null) {
     info = {
         "score": [],
-        "name": "You"
+        "name": "You",
+        "settings": {
+            "skin": "default",
+            "speed": 60
+        }
     };
 }
 
