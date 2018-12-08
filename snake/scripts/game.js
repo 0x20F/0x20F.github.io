@@ -4,8 +4,8 @@ let info = JSON.parse(storage.getItem("snake-info")); // A json with all the hig
 // If it's running for the first time
 if(info == null) {
     info = {
-        "Score": [],
-        "Name": "You",
+        "score": [],
+        "name": "You"
     };
 }
 
@@ -89,7 +89,7 @@ function main() {
                 // Show game-over menu here
                 show(gameOverMenu, "flex");
                 
-                let sc = info["Score"];
+                let sc = info.score;
                 let current = false;
 
                 for(let i = 0; i < sc.length; i++) {
@@ -408,7 +408,7 @@ function handleRestart() {
 
 
 function updateScore() {
-    $(".current_score").html("Score: " + score);
+    $(".current_score").html("Score: " + score + "pts");
 }
 
 
@@ -460,14 +460,14 @@ function start() {
 function save(score) {
     // Push the score.
     // Only if it's not a double
-    for(let i = 0; i < info.Score.length; i++) {
-        if(info.Score[i] == score) {
+    for(let i = 0; i < info.score.length; i++) {
+        if(info.score[i] == score) {
             return;
         }
     }
 
-    info.Score.push(score);
-    info.Score.sort(function(a, b) {return a - b;}).reverse();
+    info.score.push(score);
+    info.score.sort(function(a, b) {return a - b;}).reverse();
     
     storage.setItem("snake-info", JSON.stringify(info));
 }
