@@ -285,5 +285,10 @@ canvas {
     flex-direction: row;
 }
 
+#score ul .current_run {
+    background-color: rgba(24, 27, 33, 0.56);
+    color: #fff;
+}
+
 
 
