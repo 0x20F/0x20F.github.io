@@ -31,7 +31,7 @@ let dy = 0;
 let foodX = rand(0, gc.width - (size + gc.width / 2));
 let foodY = rand(0, gc.height - (size + gc.height / 2));
 
-let pause = true;
+let paused = true;
 let changingDirection = false;
 
 // Variables used in the interval
@@ -63,7 +63,7 @@ hideCanvasBorder();
  * - Called by button events in the menus
  */
 function main() {
-    pause = false;
+    paused = false;
 
     drawSnake();
 
@@ -71,7 +71,7 @@ function main() {
         
         changingDirection = false;
 
-        if (pause == false) {
+        if (paused == false) {
             
             clearCanvas();
             drawPickup("red", "darkred");
@@ -136,7 +136,7 @@ function main() {
  * - runs on death and resets everything to default
  */
 function reset() {
-    pause = false;
+    paused = false;
     dead = false;
     score = 0;
     
@@ -196,7 +196,7 @@ function moveSnake() {
         createPickup();
         score += 10;
     } else if (checkDeath()) {
-        pause = true;
+        paused = true;
         dead = true;
     } else {
         snake.pop();
@@ -268,31 +268,31 @@ function onKeyPress(e) {
 
     switch(pressed) {
         case 82: // R
-            if(pause && $(".pause, .over").is(":visible")) {
+            if(paused && (pauseMenu.is(":visible") || gameOverMenu.is(":visible"))) {
                 reset();
                 restart();
             }
             break;
         case 83: // S
-            if(pause && mainMenu.is(":visible")) {
-                reset(); // in case you come back here from the death menu
+            if(paused && mainMenu.is(":visible")) {
                 start();
                 showCanvasBorder();
 
-            } else if(pause && gameOverMenu.is(":visible")) {
+            } else if(paused && (gameOverMenu.is(":visible") || pauseMenu.is(":visible"))) {
 
+                hide(pauseMenu);
                 hide(gameOverMenu);
                 show(mainMenu, "flex");
 
             }
             break;
         case 88: { // X
-            if(pause && mainMenu.is(":visible")) {
+            if(paused && mainMenu.is(":visible")) {
 
                 hide(mainMenu);
                 show(settingsMenu, "flex");
             
-            } else if(pause && settingsMenu.is(":visible")) {
+            } else if(paused && settingsMenu.is(":visible")) {
             
                 show(mainMenu, "flex");
                 hide(settingsMenu);
@@ -316,7 +316,7 @@ function onKeyPress(e) {
                 }
 
                 dead = checkDeath();
-                pause = !pause;
+                paused = !paused;
             }
             break;
     }
@@ -417,6 +417,10 @@ function restart() {
 
 function start() {
     $(".main").css("display", "none");
+
+    clearInterval(interval);
+    reset();
+
     main();
 }
 
