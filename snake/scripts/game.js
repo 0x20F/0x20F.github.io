@@ -74,13 +74,30 @@ function main() {
             
             if (dead == true) {
                 $(".over #score ul").html("");
+
                 clearInterval(interval);
-                
                 save(score);
+
                 // Show game-over menu here
                 $(".over").css("display", "flex");
                 
-                // WORK IN PROGRESS
+                let sc = info["Score"];
+                let current = false;
+
+                for(let i = 0; i < sc.length; i++) {
+                    if(i < 6) {
+                        if(sc[i] == score) {
+                            $("#score ul").append(`<li class="current_run">${i + 1}. YOU --- ${sc[i]}</li>`);
+                            current = true;
+                        } else {
+                            $("#score ul").append(`<li>${i + 1}. YOU --- ${sc[i]}</li>`);
+                        }
+                    }
+
+                    if(sc[i] == score && current == false) {
+                        $("#score ul").append(`<li class="current_run">${i + 1}. YOU --- ${sc[i]}</li>`);
+                    }
+                }
             }
         
         }
@@ -353,5 +370,16 @@ function start() {
 }
 
 function save(score) {
-    // WORK IN PROGRESS
+    // Push the score.
+    // Only if it's not a double
+    for(let i = 0; i < info["Score"].length; i++) {
+        if(info["Score"][i] == score) {
+            return;
+        }
+    }
+
+    info["Score"].push(score);
+    info["Score"].sort(function(a, b) {return a - b;}).reverse();
+    
+    storage.setItem("info", JSON.stringify(info));
 }
