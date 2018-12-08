@@ -269,6 +269,7 @@ canvas {
 
 #score ul li {
     width: 100%;
+    padding: 5px 0;
 
     display: flex;
     justify-content: center;
@@ -288,6 +289,12 @@ canvas {
 #score ul .current_run {
     background-color: rgba(24, 27, 33, 0.56);
     color: #fff;
+}
+
+#score ul .separator {
+    color: rgba(24, 27, 33, 0.56);
+    font-size: 20px;
+    margin: 5px 0;
 }
 
 

@@ -105,6 +105,7 @@ function main() {
                     }
 
                     if(sc[i] == score && current == false) {
+                        $("#score ul").append(`<li class="separator"><i class="fas fa-ellipsis-h"></i></li>`);
                         $("#score ul").append(
                             `<li class="current_run">
                                 <span class="score_item">${i + 1}. YOU</span>
