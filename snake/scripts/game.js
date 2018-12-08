@@ -139,6 +139,8 @@ function reset() {
     paused = false;
     dead = false;
     score = 0;
+    dy = 0;
+    dx = 5;
     
     clearCanvas();
     createPickup();
