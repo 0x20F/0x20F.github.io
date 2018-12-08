@@ -72,10 +72,14 @@
 
     <script type="text/javascript">
         // No need for jquery
-        let snakeInfo = document.querySelector(".snake .info");
-        let snakeScore = JSON.parse(localStorage.getItem("snake-info")).Score[0];
+        try {
+            let snakeScore = JSON.parse(localStorage.getItem("snake-info")).Score[0];
+            let snakeInfo = document.querySelector(".snake .info");
 
-        snakeInfo.innerHTML = "Highest Score: " + snakeScore;
+            snakeInfo.innerHTML = "Highest Score: " + snakeScore;
+        } catch(e) {
+            // Don't display high score if it's null
+        }
     </script>
 </body>
 
