@@ -123,13 +123,11 @@ main .item .overlay {
     text-align: center;
 }
 
-
-main .releases {
-    grid-area: r;
-}
-
-main .periodic {
-    grid-area: p;
+main .snake .info {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 100;
+    font-style: italic;
 }
 
 
