@@ -270,55 +270,17 @@ function onKeyPress(e) {
 
     switch(pressed) {
         case 82: // R
-            if(paused && (pauseMenu.is(":visible") || gameOverMenu.is(":visible"))) {
-                reset();
-                restart();
-            }
+            handleRestart();
             break;
         case 83: // S
-            if(paused && mainMenu.is(":visible")) {
-                start();
-                showCanvasBorder();
-
-            } else if(paused && (gameOverMenu.is(":visible") || pauseMenu.is(":visible"))) {
-
-                hide(pauseMenu);
-                hide(gameOverMenu);
-                show(mainMenu, "flex");
-
-            }
+            handleStartMenu();
             break;
         case 88: // X
-            if(paused && mainMenu.is(":visible")) {
-
-                hide(mainMenu);
-                show(settingsMenu, "flex");
-            
-            } else if(paused && settingsMenu.is(":visible")) {
-            
-                show(mainMenu, "flex");
-                hide(settingsMenu);
-            
-            }
+            handleSettingsMenu();
             break;
         case 27:
             // Esc
-            if(!dead) {
-                if(pauseMenu.is(":visible")) {
-
-                    hide(pauseMenu)
-                    showCanvasBorder();
-    
-                } else {
-    
-                    show(pauseMenu, "flex");
-                    hideCanvasBorder();
-    
-                }
-
-                dead = checkDeath();
-                paused = !paused;
-            }
+            handlePause();
             break;
     }
 }
@@ -378,6 +340,67 @@ function checkDeath() {
 
     return hitLeftWall || hitRightWall || hitTopWall || hitBottomWall;
 }
+
+
+
+
+
+
+// Button functions
+function handlePause() {
+    if(!dead) {
+        if(pauseMenu.is(":visible")) {
+
+            hide(pauseMenu)
+            showCanvasBorder();
+
+        } else {
+
+            show(pauseMenu, "flex");
+            hideCanvasBorder();
+
+        }
+
+        dead = checkDeath();
+        paused = !paused;
+    }
+}
+
+function handleSettingsMenu() {
+    if(paused && mainMenu.is(":visible")) {
+
+        hide(mainMenu);
+        show(settingsMenu, "flex");
+    
+    } else if(paused && settingsMenu.is(":visible")) {
+    
+        show(mainMenu, "flex");
+        hide(settingsMenu);
+    
+    }
+}
+
+function handleStartMenu() {
+    if(paused && mainMenu.is(":visible")) {
+        start();
+        showCanvasBorder();
+
+    } else if(paused && (gameOverMenu.is(":visible") || pauseMenu.is(":visible"))) {
+
+        hide(pauseMenu);
+        hide(gameOverMenu);
+        show(mainMenu, "flex");
+
+    }
+}
+
+function handleRestart() {
+    if(paused && (pauseMenu.is(":visible") || gameOverMenu.is(":visible"))) {
+        reset();
+        restart();
+    }
+}
+
 
 
 

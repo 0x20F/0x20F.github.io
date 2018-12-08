@@ -25,7 +25,7 @@
                 
             </main>
             <footer>
-                <button class="back stand_out"><span class="key">X</span> back</button>
+                <button class="back"><span class="key">X</span> back</button>
             </footer>
         </div>
     </div>
@@ -41,8 +41,8 @@
                 </ul>
             </main>
             <footer>
-                <button class="restart stand_out"><span class="key">R</span> restart</button>
-                <button class="home stand_out"><span class="key">S</span> main menu</button>
+                <button class="restart"><span class="key">R</span> restart</button>
+                <button class="home"><span class="key">S</span> main menu</button>
             </footer>
         </div>
     </div>
@@ -57,8 +57,8 @@
                 <span class="key">ESC</span>resume
             </main>
             <footer>
-                <button class="restart stand_out"><span class="key">R</span> restart</button>
-                <button class="home stand_out"><span class="key">S</span> main menu</button>
+                <button class="restart"><span class="key">R</span> restart</button>
+                <button class="home"><span class="key">S</span> main menu</button>
             </footer>
         </div>
     </div>
@@ -71,8 +71,8 @@
 
             </main>
             <footer>
-                <button id="start"><span class="key">S</span> start</button>
-                <button><span class="key">X</span> Settings</button>
+                <button class="start"><span class="key">S</span> start</button>
+                <button class="settings_btn"><span class="key">X</span> Settings</button>
             </footer>
         </div>
     </div>
@@ -100,13 +100,12 @@
     <script type="text/javascript" src="scripts/game.js"></script>
 
     <script type="text/javascript">
-        $("#start").on("click", function () {
-            start();
-        });
-
-        $(".restart").on("click", function () {
-            restart();
-        });
+        // Add events for button presses
+        $(".start").on("click", function () { handleStartMenu(); });
+        $(".restart").on("click", function () { handleRestart(); });
+        $(".settings_btn").on("click", function() { handleSettingsMenu(); });
+        $(".home").on("click", function() { handleStartMenu(); });
+        $(".back").on("click", function() { handleSettingsMenu(); });
     </script>
 </body>
 
