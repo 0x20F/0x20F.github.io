@@ -48,6 +48,14 @@ document.addEventListener("keydown", (e) => {
 
 
 
+// MENUS and oftenly used elements!
+let mainMenu = $(".main");
+let gameOverMenu = $(".over");
+let pauseMenu = $(".pause");
+let settingsMenu = $(".settings");
+
+
+
 
 hideCanvasBorder();
 /**
@@ -79,7 +87,7 @@ function main() {
                 save(score);
 
                 // Show game-over menu here
-                $(".over").css("display", "flex");
+                show(gameOverMenu, "flex");
                 
                 let sc = info["Score"];
                 let current = false;
@@ -266,22 +274,43 @@ function onKeyPress(e) {
             }
             break;
         case 83: // S
-            if(pause && $(".main").is(":visible")) {
+            if(pause && mainMenu.is(":visible")) {
+                reset(); // in case you come back here from the death menu
                 start();
                 showCanvasBorder();
+
+            } else if(pause && gameOverMenu.is(":visible")) {
+
+                hide(gameOverMenu);
+                show(mainMenu, "flex");
+
             }
             break;
+        case 88: { // X
+            if(pause && mainMenu.is(":visible")) {
+
+                hide(mainMenu);
+                show(settingsMenu, "flex");
+            
+            } else if(pause && settingsMenu.is(":visible")) {
+            
+                show(mainMenu, "flex");
+                hide(settingsMenu);
+            
+            }
+            break;
+        }
         case 27:
             // Esc
             if(!dead) {
-                if($(".pause").is(":visible")) {
+                if(pauseMenu.is(":visible")) {
 
-                    $(".pause").css("display", "none");
+                    hide(pauseMenu)
                     showCanvasBorder();
     
                 } else {
     
-                    $(".pause").css("display", "flex");
+                    show(pauseMenu, "flex");
                     hideCanvasBorder();
     
                 }
@@ -309,8 +338,6 @@ function rand(min, max) {
 function createPickup() {
     foodX = rand(0, gc.width - (size + gc.width / 2));
     foodY = rand(0, gc.height - (size + gc.height / 2));
-
-    console.log("FOOD: " + foodX + " -> " + foodY);
 
     snake.forEach(function isOnSnake(part) {
         let onSnake = part.x == foodX && part.y == foodY;
@@ -367,6 +394,14 @@ function showCanvasBorder() {
     });
 }
 
+function hide(element) {
+    element.css("display", "none");
+}
+
+function show(element, displayType) {
+    element.css("display", displayType);
+}
+
 
 
 /* TYPICAL GAME FUNCTIONS */
@@ -399,3 +434,4 @@ function save(score) {
     
     storage.setItem("snake-info", JSON.stringify(info));
 }
+

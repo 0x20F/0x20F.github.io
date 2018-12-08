@@ -138,6 +138,13 @@ canvas {
     color: #e03c3c;
 }
 
+.over footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
 
 
 
