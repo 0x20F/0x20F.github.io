@@ -87,15 +87,30 @@ function main() {
                 for(let i = 0; i < sc.length; i++) {
                     if(i < 6) {
                         if(sc[i] == score) {
-                            $("#score ul").append(`<li class="current_run">${i + 1}. YOU --- ${sc[i]}</li>`);
+                            $("#score ul").append(
+                                `<li class="current_run">
+                                    <span class="score_item">${i + 1}. YOU</span>
+                                    <i class="fas fa-arrow-right"></i> 
+                                    <span class="score_item">${sc[i]}</span>
+                                </li>`);
                             current = true;
                         } else {
-                            $("#score ul").append(`<li>${i + 1}. YOU --- ${sc[i]}</li>`);
+                            $("#score ul").append(
+                                `<li>
+                                    <span class="score_item">${i + 1}. YOU</span>
+                                    <i class="fas fa-arrow-right"></i> 
+                                    <span class="score_item">${sc[i]}</span>
+                                </li>`);
                         }
                     }
 
                     if(sc[i] == score && current == false) {
-                        $("#score ul").append(`<li class="current_run">${i + 1}. YOU --- ${sc[i]}</li>`);
+                        $("#score ul").append(
+                            `<li class="current_run">
+                                <span class="score_item">${i + 1}. YOU</span>
+                                <i class="fas fa-arrow-right"></i> 
+                                <span class="score_item">${sc[i]}</span>
+                            </li>`);
                     }
                 }
             }
