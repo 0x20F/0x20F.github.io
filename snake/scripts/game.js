@@ -286,7 +286,7 @@ function onKeyPress(e) {
 
             }
             break;
-        case 88: { // X
+        case 88: // X
             if(paused && mainMenu.is(":visible")) {
 
                 hide(mainMenu);
@@ -299,7 +299,6 @@ function onKeyPress(e) {
             
             }
             break;
-        }
         case 27:
             // Esc
             if(!dead) {
