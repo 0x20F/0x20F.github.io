@@ -138,12 +138,15 @@ function main() {
 function reset() {
     paused = false;
     dead = false;
+    
     score = 0;
+
     dy = 0;
     dx = 5;
     
     clearCanvas();
     createPickup();
+    updateScore();
 
     snake = [
         {x: 150, y: 150},
@@ -197,6 +200,7 @@ function moveSnake() {
     if (ate) {
         createPickup();
         score += 10;
+        updateScore(); // Updates the html element
     } else if (checkDeath()) {
         paused = true;
         dead = true;
@@ -401,6 +405,11 @@ function handleRestart() {
     }
 }
 
+
+
+function updateScore() {
+    $(".current_score").html("Score: " + score);
+}
 
 
 

@@ -93,7 +93,7 @@ canvas {
     justify-content: center;
     align-items: center;
 
-    color: #181b21;
+    color: rgba(24, 27, 33, 0.56);
 }
 
 .container .menu button:hover {
@@ -151,7 +151,7 @@ canvas {
 .bottom {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
 
     width: 500px;
     height: auto;
@@ -200,9 +200,24 @@ canvas {
 
 }
 
-.empty {
-    background-color: transparent !important;
+
+.bottom #game_info {
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
+
+.bottom #game_info .current_score {
+    
+}
+
+
+
+
+
+
 
 /*For control keys visual*/
 .c_key {
