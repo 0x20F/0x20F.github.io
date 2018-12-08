@@ -1,5 +1,5 @@
 let storage = window.localStorage;
-let info = JSON.parse(storage.getItem("info")); // A json with all the highscores and settings (?)
+let info = JSON.parse(storage.getItem("snake-info")); // A json with all the highscores and settings (?)
 
 // If it's running for the first time
 if(info == null) {
@@ -397,5 +397,5 @@ function save(score) {
     info["Score"].push(score);
     info["Score"].sort(function(a, b) {return a - b;}).reverse();
     
-    storage.setItem("info", JSON.stringify(info));
+    storage.setItem("snake-info", JSON.stringify(info));
 }
