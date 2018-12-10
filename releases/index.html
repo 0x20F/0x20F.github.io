@@ -207,6 +207,13 @@
                         // Check if it's less than a day til release or not
                         // Display the timer accordingly
                         if (!released) {
+                            /**
+                            * This should probably happen when they get 
+                            * added to the body instead of afterwards..
+                            * lags a bit, maybe split it into 3 sections
+                            * released - TBC - and on timer, and just add them
+                            * there depending on what they are
+                            */
                             $("body .content .search_area").after(elementParent);
 
                             if (days > 0) {
