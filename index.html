@@ -73,7 +73,7 @@
     <script type="text/javascript">
         // No need for jquery
         try {
-            let snakeScore = JSON.parse(localStorage.getItem("snake-info")).Score[0];
+            let snakeScore = JSON.parse(localStorage.getItem("snake-info")).score[0];
             let snakeInfo = document.querySelector(".snake .info");
 
             snakeInfo.innerHTML = "Highest Score: " + snakeScore;
