@@ -3,6 +3,13 @@
     font-family: Gotham;
 }
 
+/*.releases {
+    width: 80%;
+    background-color: red;
+    height: 100%;
+    z-index: 500;
+}*/
+
 body,
 html {
     width: 100%;
