@@ -162,7 +162,8 @@
                     intervals[timer] = setInterval(function () {
 
                         var element = $(`#${timer}`);
-
+                        var elementParent = element.parent().parent();
+                        
 
                         // If there's no date yet
                         if (value[0].startsWith("TBC")) {
@@ -173,6 +174,7 @@
                             });
                             // Stop the interval so it's not wasting power
                             clearInterval(intervals[timer]);
+
                             return;
                         } else {
                             var countDownDate = new Date(value[0]).getTime();
@@ -205,6 +207,8 @@
                         // Check if it's less than a day til release or not
                         // Display the timer accordingly
                         if (!released) {
+                            $("body .content .search_area").after(elementParent);
+
                             if (days > 0) {
                                 element.html(days + " days");
                             } else {
