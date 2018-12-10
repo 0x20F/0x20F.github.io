@@ -16,22 +16,6 @@
 
 <body>
 
-    <div class="settings container">
-        <div class="menu">
-            <header>
-                SETTINGS
-            </header>
-            <main>
-                <input type="text" placeholder="WORK IN PROGRESS"/>
-                <input type="text" placeholder="WORK IN PROGRESS"/>
-                <input type="text" placeholder="WORK IN PROGRESS"/>
-            </main>
-            <footer>
-                <button class="back"><span class="key">X</span> back</button>
-            </footer>
-        </div>
-    </div>
-
     <div class="over container">
         <div class="menu">
             <header>
@@ -44,7 +28,6 @@
             </main>
             <footer>
                 <button class="restart"><span class="key">R</span> restart</button>
-                <button class="home"><span class="key">S</span> main menu</button>
             </footer>
         </div>
     </div>
@@ -60,7 +43,6 @@
             </main>
             <footer>
                 <button class="restart"><span class="key">R</span> restart</button>
-                <button class="home"><span class="key">S</span> main menu</button>
             </footer>
         </div>
     </div>
@@ -74,7 +56,6 @@
             </main>
             <footer>
                 <button class="start"><span class="key">S</span> start</button>
-                <button class="settings_btn"><span class="key">X</span> Settings</button>
             </footer>
         </div>
     </div>
@@ -109,7 +90,6 @@
         // Add events for button presses
         $(".start").on("click", function () { handleStartMenu(); });
         $(".restart").on("click", function () { handleRestart(); });
-        $(".settings_btn").on("click", function() { handleSettingsMenu(); });
         $(".home").on("click", function() { handleStartMenu(); });
         $(".back").on("click", function() { handleSettingsMenu(); });
     </script>

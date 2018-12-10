@@ -330,19 +330,4 @@ canvas {
 }
 
 
-.settings main input {
-    width: 70%;
-    height: 50px;
-    border-radius: 2px;
-    outline: none;
-
-    border: none;
-    margin: 5px 0;
-    background-color: rgba(24, 27, 33, 0.1);
-
-    font-family: "Exo 2";
-    padding: 5px;
-}
-
-
 

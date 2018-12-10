@@ -56,7 +56,6 @@ document.addEventListener("keydown", (e) => {
 let mainMenu = $(".main");
 let gameOverMenu = $(".over");
 let pauseMenu = $(".pause");
-let settingsMenu = $(".settings");
 
 
 
@@ -283,9 +282,6 @@ function onKeyPress(e) {
         case 83: // S
             handleStartMenu();
             break;
-        case 88: // X
-            handleSettingsMenu();
-            break;
         case 27:
             // Esc
             handlePause();
@@ -371,20 +367,6 @@ function handlePause() {
 
         dead = checkDeath();
         paused = !paused;
-    }
-}
-
-function handleSettingsMenu() {
-    if(paused && mainMenu.is(":visible")) {
-
-        hide(mainMenu);
-        show(settingsMenu, "flex");
-    
-    } else if(paused && settingsMenu.is(":visible")) {
-    
-        show(mainMenu, "flex");
-        hide(settingsMenu);
-    
     }
 }
 
