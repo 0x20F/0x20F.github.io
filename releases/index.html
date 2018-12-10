@@ -3,11 +3,14 @@
 
 <head>
     <title>Releases | Home</title>
-    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="theme-color" content="#181b21">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ"
         crossorigin="anonymous">
@@ -19,7 +22,6 @@
 
     <main class="content">
         <header>
-            <!-- NOT SURE ABOUT IT -->
             <div class="header_text">
                 <div class="fancy">
                     RELEASES |
@@ -36,6 +38,7 @@
             </div>
         </div>
     </main>
+
     <div class="body_bg"></div>
     <div class="bg_overlay foreground">
         <div class="triangle_tl foreground"></div>
@@ -87,7 +90,6 @@
         // Whenever a key is released (a full keypress) 
         $(".search_box").on("keyup", function () {
             let s_val = $(this).val().toLowerCase(); // Make it lowercase
-            console.log(s_val); // Debug
 
             // For every .box element (every game)
             $(".box").each(function (i) {
@@ -136,7 +138,6 @@
         $.getJSON("data/games.json", {}, function (data) {
 
             for (const [key, value] of Object.entries(data)) {
-                console.log(key, value); // Debug
 
                 var timer = "timer" + timer_i;
 
