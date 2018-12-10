@@ -170,6 +170,7 @@ header .fancy .smaller {
     z-index: 2;
     border: 2px solid #181b21;
     flex-grow: 1;
+    cursor: default;
 }
 
 .bg_thumb {
