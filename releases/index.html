@@ -122,12 +122,6 @@
         #######
         ####*/
 
-        // Used to pad timers with 0s so instead of 1:20 it's 01:20 (for example)
-        function pad(num, padlen, padchar) {
-            var pad_char = typeof padchar !== 'undefined' ? padchar : '0';
-            var pad = new Array(1 + padlen).join(pad_char);
-            return (pad + num).slice(-pad.length);
-        }
 
         // Set the date we're counting down to
         var countDownDate = new Date().getTime();
@@ -242,7 +236,14 @@
 
 
 
+        // Used to pad timers with 0s so instead of 1:20 it's 01:20 (for example)
+        function pad(num, padlen, padchar) {
+            var pad_char = typeof padchar !== 'undefined' ? padchar : '0';
+            var pad = new Array(1 + padlen).join(pad_char);
+            return (pad + num).slice(-pad.length);
+        }
 
+        
 
         function buildBox(gameTitle, coverImage, timerId, status = "") {
             return `<div class="box">
