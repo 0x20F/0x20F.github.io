@@ -135,12 +135,8 @@
 
                 var timer = "timer" + timer_i;
 
-
+                // Check if the game has a release date or not
                 var isTBC = value[0].startsWith("TBC");
-
-                var countDownDate = new Date(value[0]).getTime();
-                var now = new Date().getTime();
-                var isReleased = now > countDownDate;
 
 
                 // If there's no release date, don't make an interval
@@ -150,21 +146,25 @@
                         `<span class="to_be_confirmed">TBC</span>`));
 
                     timer_i++;
-                    continue; // Jump back to the start of the loop
-
-                } else if (isReleased) {
-
-                    $("body .content").append(buildBox(key, value[1], timer,
-                        `<span class="released">RELEASED</span>`));
-                    
-                    timer_i++;
-                    continue; // Jump back to the start of the loop
+                    continue;
 
                 } else {
+                    // Check if the game is released or not
+                    var countDownDate = new Date(value[0]).getTime();
+                    var now = new Date().getTime();
+                    var isReleased = now > countDownDate;
 
-                    $("body .content").append(buildBox(key, value[1], timer));
-
+                    if(isReleased) {
+                        $("body .content").append(buildBox(key, value[1], timer,
+                            `<span class="released">RELEASED</span>`));
+                    
+                        timer_i++;
+                        continue;    
+                    }
                 }
+
+
+                $("body .content").append(buildBox(key, value[1], timer));
 
 
 
@@ -243,7 +243,7 @@
             return (pad + num).slice(-pad.length);
         }
 
-        
+
 
         function buildBox(gameTitle, coverImage, timerId, status = "") {
             return `<div class="box">
