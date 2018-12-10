@@ -3,13 +3,6 @@
     font-family: Gotham;
 }
 
-/*.releases {
-    width: 80%;
-    background-color: red;
-    height: 100%;
-    z-index: 500;
-}*/
-
 body,
 html {
     width: 100%;
@@ -155,6 +148,21 @@ header .fancy .smaller {
     transition: all .5s;
     overflow-x: hidden;
 }
+
+
+.released {
+    width: 80%;
+    height: auto;
+    min-height: 400px;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: all .5s;
+    overflow-x: hidden;
+}
+
 
 .box {
     width: 350px;
