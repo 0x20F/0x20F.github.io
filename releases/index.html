@@ -38,7 +38,8 @@
         </div>
     </main>
 
-    <main class="released"></main>
+    <main class="released_titles">
+    </main>
 
     <div class="body_bg"></div>
     <div class="bg_overlay foreground">
@@ -162,7 +163,7 @@
                     var isReleased = now > countDownDate;
 
                     if(isReleased) {
-                        $("body .content").append(buildBox(key, value[1], timer,
+                        $("body .released_titles").append(buildBox(key, value[1], timer,
                             `<span class="released">RELEASED</span>`));
                     
                         timer_i++;

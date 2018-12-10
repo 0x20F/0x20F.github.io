@@ -150,7 +150,7 @@ header .fancy .smaller {
 }
 
 
-.released {
+.released_titles {
     width: 80%;
     height: auto;
     min-height: 400px;
@@ -161,6 +161,8 @@ header .fancy .smaller {
     flex-wrap: wrap;
     transition: all .5s;
     overflow-x: hidden;
+
+    display: none;
 }
 
 
@@ -370,7 +372,7 @@ footer a {
 }
 
 @media screen and (max-width: 1800px) {
-    .content {
+    .content, .released_titles {
         width: 90%;
     }
     .search_container {
@@ -406,7 +408,7 @@ footer a {
         -webkit-text-fill-color: #f2f2f2;
         opacity: 0.1;
     }
-    .content {
+    .content, .released_titles {
         width: 100%;
     }
     .search_area {
