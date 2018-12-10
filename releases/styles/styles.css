@@ -246,6 +246,10 @@ header .fancy .smaller {
     z-index: 3;
 }
 
+.darker {
+    opacity: 0.9;
+}
+
 footer {
     width: 100%;
     height: 300px;

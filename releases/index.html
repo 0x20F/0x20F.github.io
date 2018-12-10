@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="theme-color" content="#181b21">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
+
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+        crossorigin="anonymous">
 </head>
 
 <body>
@@ -45,11 +46,12 @@
     </div>
 
     <footer>
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30" height="30" viewBox="0 0 30 30">
-            <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z"
-            />
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="30"
+            height="30" viewBox="0 0 30 30">
+            <path d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M11,17H13V11H11V17Z" />
         </svg>
-        <p>Dates may not be totally accurate as they are game releases and surprise bugs may show up in the development process.</p>
+        <p>Dates may not be totally accurate as they are game releases and surprise bugs may show up in the development
+            process.</p>
         <br>
         <p>
             <br>Can't find a game? Contribute to the list and help improve it
@@ -139,21 +141,38 @@
 
                 var timer = "timer" + timer_i;
 
-                // Append a box containing all the info about a game
-                // based on the data retrieved from the json
-                $("body .content").append(
-                    `<div class="box">
-                       <div class="overlay"></div>
-                       <div class="cover"></div>
-                       <p class="game_title">${key}</p>
-                       <div class="timerbox">
-                           <p id="${timer}"></p>
-                       </div>
-                       <div class="bg_thumb">
-                           <img class="background" src="${value[1]}"/>
-                       </div>
-                   </div>`
-                );
+
+                var isTBC = value[0].startsWith("TBC");
+
+                var countDownDate = new Date(value[0]).getTime();
+                var now = new Date().getTime();
+                var isReleased = now > countDownDate;
+
+
+                // If there's no release date, don't make an interval
+                if (isTBC) {
+
+                    $("body .content").append(buildBox(key, value[1], timer,
+                        `<span class="to_be_confirmed">TBC</span>`));
+
+                    timer_i++;
+                    continue; // Jump back to the start of the loop
+
+                } else if (isReleased) {
+
+                    $("body .content").append(buildBox(key, value[1], timer,
+                        `<span class="released">RELEASED</span>`));
+                    
+                    timer_i++;
+                    continue; // Jump back to the start of the loop
+
+                } else {
+
+                    $("body .content").append(buildBox(key, value[1], timer));
+
+                }
+
+
 
                 (function (timer) {
                     // Add it to an array so it can be killed if needed
@@ -161,30 +180,14 @@
 
                         var element = $(`#${timer}`);
                         var elementParent = element.parent().parent();
-                        
 
-                        // If there's no date yet
-                        if (value[0].startsWith("TBC")) {
-                            element.html(`<span class="to_be_confirmed">${value[0]}</span>`);
-                            // Make the image darker
-                            element.parent().parent().find(".overlay").css({
-                                "opacity": 0.9
-                            });
-                            // Stop the interval so it's not wasting power
-                            clearInterval(intervals[timer]);
-
-                            return;
-                        } else {
-                            var countDownDate = new Date(value[0]).getTime();
-                            var now = new Date().getTime();
-                            var released = false;
-                        }
+                        var countDownDate = new Date(value[0]).getTime();
+                        var now = new Date().getTime();
 
 
 
                         if (now > countDownDate) {
                             // This means we're past the date so it released
-                            released = true;
                             element.html(`<span class="released">RELEASED</span>`);
                             element.parent().parent().find(".overlay").css({
                                 "opacity": 0.9
@@ -198,29 +201,31 @@
 
                         // Time calculations for days, hours, minutes and seconds
                         var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                        var hours = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)), 2);
-                        var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)), 2);
+                        var hours = pad(Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 *
+                            60)), 2);
+                        var minutes = pad(Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+                            2);
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
 
                         // Check if it's less than a day til release or not
                         // Display the timer accordingly
-                        if (!released) {
-                            /**
-                            * This should probably happen when they get 
-                            * added to the body instead of afterwards..
-                            * lags a bit, maybe split it into 3 sections
-                            * released - TBC - and on timer, and just add them
-                            * there depending on what they are
-                            */
-                            $("body .content .search_area").after(elementParent);
 
-                            if (days > 0) {
-                                element.html(days + " days");
-                            } else {
-                                element.html(hours + ":" +
-                                    minutes + ":" + seconds);
-                            }
+                        /**
+                         * This should probably happen when they get 
+                         * added to the body instead of afterwards..
+                         * lags a bit, maybe split it into 3 sections
+                         * released - TBC - and on timer, and just add them
+                         * there depending on what they are
+                         */
+                        $("body .content .search_area").after(elementParent);
+
+                        if (days > 0) {
+                            element.html(days + " days");
+                        } else {
+                            element.html(hours + ":" +
+                                minutes + ":" + seconds);
                         }
+
 
                     }, 1000);
                 })(timer);
@@ -228,6 +233,30 @@
                 timer_i++;
             }
         });
+
+
+
+
+
+
+
+
+
+
+
+        function buildBox(gameTitle, coverImage, timerId, status = "") {
+            return `<div class="box">
+                <div class="overlay darker"></div>
+                <div class="cover"></div>
+                <p class="game_title">${gameTitle}</p>
+                <div class="timerbox">
+                    <p id="${timerId}">${status}</p>
+                </div>
+                <div class="bg_thumb">
+                    <img class="background" src="${coverImage}"/>
+                </div>
+            </div>`;
+        }
     </script>
 </body>
 
