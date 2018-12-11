@@ -38,8 +38,6 @@
         </div>
     </main>
 
-    <main class="released_titles"></main>
-
     <div class="body_bg"></div>
     <div class="bg_overlay foreground">
         <div class="triangle_tl foreground"></div>
@@ -162,7 +160,7 @@
                     var isReleased = now > countDownDate;
 
                     if(isReleased) {
-                        $("body .released_titles").append(buildBox(key, value[1], timer,
+                        $("body .content").append(buildBox(key, value[1], timer,
                             `<span class="released">RELEASED</span>`));
                     
                         timer_i++;
@@ -190,9 +188,10 @@
                         if (now > countDownDate) {
                             // This means we're past the date so it released
                             element.html(`<span class="released">RELEASED</span>`);
-                            element.parent().parent().find(".overlay").css({
+                            elementParent.find(".overlay").css({
                                 "opacity": 0.9
                             });
+            
                             clearInterval(intervals[timer]);
                             return;
                         }
