@@ -134,7 +134,6 @@
             for (const [key, value] of Object.entries(data)) {
 
                 var timer = "timer" + timer_i;
-
                 // Check if the game has a release date or not
                 var isTBC = value[0].startsWith("TBC");
 
@@ -168,8 +167,8 @@
                     }
                 }
 
-
-                $("body .content").append(buildBox(key, value[1], timer));
+                // If the game has a timer, it'll be added at the top of the list
+                $("body .content .search_area").after(buildBox(key, value[1], timer));
 
 
 
@@ -207,15 +206,6 @@
                             2);
                         var seconds = pad(Math.floor((distance % (1000 * 60)) / 1000), 2);
 
-
-                        /**
-                         * This should probably happen when they get 
-                         * added to the body instead of afterwards..
-                         * lags a bit, maybe split it into 3 sections
-                         * released - TBC - and on timer, and just add them
-                         * there depending on what they are
-                         */
-                        $("body .content .search_area").after(elementParent);
 
                         if (days > 0) {
                             element.html(days + " days");
