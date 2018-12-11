@@ -149,6 +149,23 @@ header .fancy .smaller {
     overflow-x: hidden;
 }
 
+
+.released_titles {
+    width: 80%;
+    height: auto;
+    min-height: 400px;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: all .5s;
+    overflow-x: hidden;
+
+    display: none;
+}
+
+
 .box {
     width: 350px;
     height: 200px;
@@ -244,6 +261,10 @@ header .fancy .smaller {
     background-color: #181b21;
     opacity: 0.7;
     z-index: 3;
+}
+
+.darker {
+    opacity: 0.9;
 }
 
 footer {
@@ -351,7 +372,7 @@ footer a {
 }
 
 @media screen and (max-width: 1800px) {
-    .content {
+    .content, .released_titles {
         width: 90%;
     }
     .search_container {
@@ -387,7 +408,7 @@ footer a {
         -webkit-text-fill-color: #f2f2f2;
         opacity: 0.1;
     }
-    .content {
+    .content, .released_titles {
         width: 100%;
     }
     .search_area {
