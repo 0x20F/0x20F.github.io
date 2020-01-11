@@ -35,6 +35,8 @@ body, html {
     margin: 0;
     padding: 0;
 
+    overflow: hidden;
+
     @include flex(center, flex-start, column);
     background-color: $bg;
 }
