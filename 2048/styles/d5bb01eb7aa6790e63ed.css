@@ -1,0 +1,3 @@
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,600,700&display=swap);
+.game-grid{width:550px;height:550px;display:flex;flex-direction:row;justify-content:center;align-items:center;font-weight:600;font-size:50px;border-radius:5px}
+body,html{width:100%;height:100%;padding:0;margin:0}#root{width:inherit;height:inherit;font-family:Quicksand,sans-serif;display:flex;flex-direction:column;justify-content:center;align-items:center}
