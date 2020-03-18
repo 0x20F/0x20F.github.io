@@ -41,7 +41,11 @@ jobs:
         git add -A
         git commit -m "Update sites"
         
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        if [ $? -ne 0 ]; then
+          echo "nothing to commit"
+          exit 0
+        fi
+        
+        git remote set-url "https://x-access-token:${GITHUB_TOKEN}@github.com/0x20F/0x20F.github.io.git
+        git push
+      
