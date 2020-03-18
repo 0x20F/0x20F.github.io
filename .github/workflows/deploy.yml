@@ -27,7 +27,7 @@ jobs:
         
     - name: Build 2048
       run: |
-        cd 2048 && npm install && npm run build
+        cd /tmp/2048 && npm install && npm run build
         mkdir -p $GITHUB_WORKSPACE/2048
         mv ./dist/* $GITHUB_WORKSPACE/2048/
         cd $GITHUB_WORKSPACE
