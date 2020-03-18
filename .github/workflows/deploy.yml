@@ -44,6 +44,6 @@ jobs:
         if [ -n "$(git status --porcelain)" ]; then
           git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/0x20F/0x20F.github.io.git
           git push
-        
+          exit 0
         fi
       
