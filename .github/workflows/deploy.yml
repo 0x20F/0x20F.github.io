@@ -24,10 +24,14 @@ jobs:
       run: |
         cd /tmp
         git clone https://github.com/0x20F/2048.git
+        
+    - name: Build 2048
+      run: |
         cd 2048 && npm install && npm run build
         mkdir -p $GITHUB_WORKSPACE/2048
         mv ./dist/* $GITHUB_WORKSPACE/2048/
         cd $GITHUB_WORKSPACE
+  
     
     - name: Commit changes
       run: |
