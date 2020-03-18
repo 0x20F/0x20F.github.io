@@ -41,7 +41,7 @@ jobs:
         git add -A
         git commit -m "Update sites"
         
-        if [ $? -ne 0 ]; then
+        if [ ! -n "$(git status --porcelain)" ]; then
           echo "nothing to commit"
           exit 0
         fi
