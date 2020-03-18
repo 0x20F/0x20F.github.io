@@ -39,13 +39,11 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add -A
+        
         git commit -m "Update sites"
+        if [ -n "$(git status --porcelain)" ]; then
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/0x20F/0x20F.github.io.git
+          git push
         
-        if [ ! -n "$(git status --porcelain)" ]; then
-          echo "nothing to commit"
-          exit 0
         fi
-        
-        git remote set-url "https://x-access-token:${GITHUB_TOKEN}@github.com/0x20F/0x20F.github.io.git
-        git push
       
