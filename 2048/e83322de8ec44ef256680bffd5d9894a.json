@@ -1,8 +1,0 @@
-{
-  "orientation": "portrait",
-  "display": "standalone",
-  "start_url": ".",
-  "description": "2048 clone modernized",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff"
-}
